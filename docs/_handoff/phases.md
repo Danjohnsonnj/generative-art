@@ -40,7 +40,7 @@ See [implementation-plan.md](implementation-plan.md) for the exact files, slice 
 
 - Add `clean-vector`, true SVG serialization, renderer capability UI, and system/style switching.
 - Automated verify: deterministic SVG fixture is valid XML and contains vector geometry; SVG stays unavailable for a raster-only style.
-- Hard UAT: switch the flow system to clean vector, export SVG, reopen it in a browser, and confirm the same composition.
+- Hard UAT: switch the flow system to clean vector, export SVG, reopen it in a browser, and confirm the same composition. Agent runs once in Chrome; user must accept before Phase 8. **Done 2026-07-11: Slices 7.1–7.3 committed; hard UAT accepted.**
 
 ## Phase 8 - Second composition system
 

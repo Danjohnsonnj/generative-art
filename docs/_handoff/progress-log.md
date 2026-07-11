@@ -244,3 +244,10 @@
 - Verified: Browser suite 51 passed / 0 failed with a clean console. Chrome smoke confirmed style switching updates the renderer and SVG capability state without changing the flow-field system.
 - Learned: The export panel must obtain the current normalized render data at click time so viewport resizing does not make its SVG dimensions stale.
 - Overwrote: `js/main.js`, `js/ui/export-panel.js`, `test/export-panel.test.js`, `test/run-tests.js`, HANDOFF.md, implementation-plan.md, progress-log.md, `docs/extension-guide.md`.
+
+## 2026-07-11 - Session 6d: Phase 7 hard UAT accepted
+
+- Happened: User accepted the Phase 7 hard UAT (switch flow-field to `clean-vector`, export SVG, reopen in a browser, confirm matching composition). Advanced handoff to Phase 8.
+- Verified: User acceptance of the Phase 7 exit criteria; Slices 7.1–7.3 already committed; browser suite last green at 51 passed / 0 failed.
+- Learned: Capability gating plus live canvas dimensions at export time is enough for the SVG reopen check without a separate preview surface.
+- Overwrote: HANDOFF.md, phases.md, implementation-plan.md, progress-log.md, lessons.md, `docs/extension-guide.md`.

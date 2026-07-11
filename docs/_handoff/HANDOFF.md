@@ -2,17 +2,17 @@
 
 **Goal:** Build a programmable generative art canvas for organic, recursive, style-rich abstract art — modernist/ink/Bauhaus-inspired, not cheesy fractal kitsch.
 
-**Current phase:** Phase 7 - Vector path
-**Next action:** Run the Phase 7 hard UAT. Switch the flow-field system to `clean-vector`, export SVG, reopen the file directly in a browser, and confirm it matches the on-screen composition. Do not advance to Phase 8 until the user accepts.
+**Current phase:** Phase 8 - Second composition system
+**Next action:** Start Slice 8.1 (`ink-growth` system) from `docs/_handoff/implementation-plan.md`: add `js/systems/ink-growth.js` and `test/ink-growth.test.js` with finite in-bounds geometry, measurable branch asymmetry across seeds, and IR shapes both v1 styles can render. Honor the hard Phase 8 UAT after Slice 8.2.
 
 **Hard invariants:** Preserve exact checkpoint rendering across engine evolution. The shipped tool has no build step and supports both solo exploration and agent-guided extension.
 
 **Required reading (this phase):**
 
 - docs/_handoff/lessons.md - reusable toolkit; reuse before re-deriving
-- docs/_handoff/implementation-plan.md - approved plan; Phase 7 section names exact files/verify per slice
-- docs/_handoff/tech-brief.md - style capabilities, true SVG vs raster-only, Geometry IR compatibility
-- docs/extension-guide.md - agent extension entry; update when Phase 7 adds SVG export paths
+- docs/_handoff/implementation-plan.md - approved plan; Phase 8 section names exact files/verify per slice
+- docs/_handoff/tech-brief.md - Geometry IR, style compatibility, anti-fractal art direction
+- docs/extension-guide.md - agent extension entry; system registration and IR rules
 - docs/_handoff/process.md - cold-start, extension, and commit discipline
 
 **Index (load on demand):**
@@ -26,5 +26,5 @@
 - lessons.md - curated, accreted toolkit (carried in Required reading)
 - docs/extension-guide.md - extension mechanics (carried in Required reading for this phase)
 
-**Open decisions:** None blocking. Chrome direction is approved and recorded in `lessons.md`. Phase 5 and Phase 6 hard UATs accepted 2026-07-11.
-**Last updated:** 2026-07-11 after Slice 7.3: the SVG control enables only for `clean-vector` and explains its unavailability for `ink-tonal`; browser suite 51 passed / 0 failed. Next is the hard Phase 7 UAT.
+**Open decisions:** None blocking. Chrome direction is approved and recorded in `lessons.md`. Phase 5, Phase 6, and Phase 7 hard UATs accepted 2026-07-11.
+**Last updated:** 2026-07-11 after Phase 7 complete (Slices 7.1–7.3 + hard UAT accepted); next is Slice 8.1.

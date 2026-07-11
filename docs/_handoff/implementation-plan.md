@@ -2,7 +2,7 @@
 
 Cold-start executable plan for [phases.md](phases.md) Phases 4-10. Names exact files, one implementation path, prerequisites, out-of-scope work, and deterministic verification per increment. This document does not restate product/technical rationale — see [product-brief.md](product-brief.md) and [tech-brief.md](tech-brief.md) for that.
 
-**Status:** Approved and in execution. Phases 4–6 complete; Phase 7 Slices 7.1–7.3 complete; hard UAT pending. See [HANDOFF.md](HANDOFF.md) for the current next action.
+**Status:** Approved and in execution. Phases 4–7 complete; Phase 8 next. See [HANDOFF.md](HANDOFF.md) for the current next action.
 
 ## Global prerequisites (one-time, before Slice 4.1)
 
@@ -138,7 +138,7 @@ docs/
 | 7.2 SVG export | `js/core/export-svg.js`, `test/export-svg.test.js` | Exported Blob's MIME type and root element are valid SVG for `clean-vector`; the same call path for `ink-tonal` (raster-only) is refused with a named "unsupported" result, not an empty/garbage file. **Complete 2026-07-11.** |
 | 7.3 UI capability gating | `js/ui/export-panel.js` updated: "Export SVG" is disabled with an inline explanation whenever the active style's `capabilities.svg` is `false` | — (covered by UAT). **Complete 2026-07-11.** |
 
-**Hard phase UAT:** switch the flow system to `clean-vector`, export SVG, reopen the file directly in a browser, and confirm it matches the on-screen composition — matching [phases.md](phases.md) Phase 7.
+**Hard phase UAT:** switch the flow system to `clean-vector`, export SVG, reopen the file directly in a browser, and confirm it matches the on-screen composition — matching [phases.md](phases.md) Phase 7. Agent runs this UAT script once in Chrome and records the result before marking Phase 7 done; do not start Phase 8 until the user accepts. **Accepted 2026-07-11.**
 
 ---
 

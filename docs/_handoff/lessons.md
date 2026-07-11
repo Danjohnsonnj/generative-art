@@ -119,3 +119,9 @@
 - Context: Phase 6 UAT deliberately imports invalid JSON to prove library isolation.
 - Lesson: Surface `Could not import JSON:` plus the underlying parse/validation message. That is actionable enough; do not invent a second error taxonomy or hide the engine's position hint.
 - Evidence: Phase 6 hard UAT, 2026-07-11.
+
+## SVG export reads live render data
+
+- Context: Phase 7 capability UI must gate SVG without stale dimensions after a viewport resize.
+- Lesson: Keep the last normalized geometry/style/params on the app shell, then resolve `widthPx`/`heightPx` from the live canvas only when exporting. Disable the SVG control with an inline explanation when `capabilities.svg` is false; never download an empty or raster-wrapped `.svg`.
+- Evidence: Phase 7 Slices 7.2–7.3 and hard UAT, 2026-07-11.
