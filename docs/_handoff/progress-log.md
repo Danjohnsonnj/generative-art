@@ -139,3 +139,17 @@
 - Verified: All seven required headings present; Markdown lint clean; claims spot-checked against `js/core/*`, `js/ui/schema-form.js`, and `tech-brief.md`.
 - Learned: Extension docs must distinguish current runtime behavior from later-phase contracts so a cold-start agent does not invent migration or SVG loaders before those phases exist.
 - Overwrote: `docs/extension-guide.md`, HANDOFF.md, progress-log.md, lessons.md.
+
+## 2026-07-11 - Session 4a: Targeted UAT gates for Phases 5–6
+
+- Happened: Locked targeted UAT additions without per-slice gates: (1) pre-UI contract smoke after Slice 5.3 before Slice 5.5 checkpoint UI; (2) hard phase UAT after 5.5 and 6.3 with an agent Chrome pass before user acceptance; (3) phase-end UAT for 7–9 and Phase 10 remain hard exits. No new UAT after validation-only slices such as 5.1.
+- Verified: Plan and phases wording now name the gates.
+- Learned: Mid-gates earn their keep only where UI would otherwise sit on an unproven persistence/lineage contract.
+- Overwrote: `implementation-plan.md`, `phases.md`, `lessons.md`, `progress-log.md`.
+
+## 2026-07-11 - Session 4b: Slice 5.1 document model
+
+- Happened: Added `js/core/document.js` to build/validate `ArtworkRevision` v1 (`createArtworkRevision`, `validateArtworkRevision`, `ArtworkDocumentValidationError`). Rejects missing required fields, unsupported `schemaVersion`/`irVersion`, and non-ISO timestamps. Registered `test/document.test.js` in the browser harness.
+- Verified: Browser suite 28 passed / 0 failed; console clean.
+- Learned: `Date.parse` alone accepts loose date strings; require an ISO-8601 pattern before accepting timestamps.
+- Overwrote: `js/core/document.js`, `test/document.test.js`, `test/run-tests.js`, HANDOFF.md, `implementation-plan.md` status line, progress-log.md.

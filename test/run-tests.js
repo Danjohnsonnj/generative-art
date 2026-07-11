@@ -1,4 +1,5 @@
 import { assert } from "./assert.js";
+import * as documentTests from "./document.test.js";
 import * as exportPngTests from "./export-png.test.js";
 import * as flowFieldTests from "./flow-field.test.js";
 import * as geometryTests from "./geometry.test.js";
@@ -13,6 +14,7 @@ const testModules = [
   rngTests,
   geometryTests,
   registryTests,
+  documentTests,
   flowFieldTests,
   inkTonalTests,
   exportPngTests,

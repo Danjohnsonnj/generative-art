@@ -83,3 +83,9 @@
 - Context: Slice 4.11 extension guide initially described migration hooks, SVG capability, and full tech-brief verification as if they were live.
 - Lesson: Keep the full contract in the guide, but label what Phase 4 actually enforces today versus what later phases introduce. Authoring conventions that are not runtime-enforced (for example `defaultParams` completeness) must say so, or agents invent loaders and checks that do not exist yet.
 - Evidence: Independent review of `docs/extension-guide.md`, 2026-07-11; applied before Slice 4.11 UAT.
+
+## UAT gates at contract and phase exits
+
+- Context: Phases 5–10 already had phase-end UAT; Phase 4 also used mid-slice visual gates.
+- Lesson: Keep phase-end UAT hard for Phases 5–9 and the Phase 10 release gate. Add only targeted mid-gates where UI would otherwise sit on an unproven contract (Phase 5: after bundle I/O before checkpoint UI). After checkpoint UI (5.5) and library UI (6.3), the agent runs the phase UAT script once in Chrome before asking the user to accept. Do not add a UAT after every validation-only slice.
+- Evidence: User decision 2026-07-11.

@@ -2,7 +2,7 @@
 
 Cold-start executable plan for [phases.md](phases.md) Phases 4-10. Names exact files, one implementation path, prerequisites, out-of-scope work, and deterministic verification per increment. This document does not restate product/technical rationale — see [product-brief.md](product-brief.md) and [tech-brief.md](tech-brief.md) for that.
 
-**Status:** Drafted, awaiting user approval. No application code exists until this plan is approved (hard invariant, [HANDOFF.md](HANDOFF.md)).
+**Status:** Approved and in execution. Phase 4 complete; Phase 5 in progress (Slice 5.1 done). See [HANDOFF.md](HANDOFF.md) for the current next action.
 
 ## Global prerequisites (one-time, before Slice 4.1)
 
@@ -106,7 +106,9 @@ docs/
 | 5.4 Migration fixture | `js/systems/flow-field.js` gains `migrate(oldParams, fromVersion)` for a synthetic v0→v1 param rename, `test/migration.test.js` | Loading a fixture revision recorded against `flow-field` v0 resolves through `migrate` to valid v1 params and produces the same geometry as an equivalent hand-written v1 revision; a fixture citing an unsupported version (no `migrate` path) is rejected visibly, matching `tech-brief.md`'s "old versions remain loadable until a tested migration produces identical output" |
 | 5.5 Checkpoint UI | `js/ui/checkpoint-panel.js` (Save checkpoint / Fork / revision history list / Export JSON / Import JSON), wired into `js/main.js` | — (covered by UAT) |
 
-**UAT:** checkpoint the preset, fork it, change the fork, export JSON, re-import as a new work, and return to the unchanged source revision — matching [phases.md](phases.md) Phase 5 exactly.
+**Pre-UI contract gate (after 5.3, before 5.5):** Do not start the checkpoint panel until Slice 5.3 automated verify is green. Run a short API-level smoke in the browser test page or console: export→import round-trip structurally equal; unknown optional field preserved; collision surfaces new-work vs replace (no silent overwrite). Slice 5.4 may run after 5.3 and before this gate clears for 5.5.
+
+**Hard phase UAT (after 5.5):** checkpoint the preset, fork it, change the fork, export JSON, re-import as a new work, and return to the unchanged source revision — matching [phases.md](phases.md) Phase 5 exactly. Agent runs this UAT script once in Chrome and records the result before marking Phase 5 done; do not start Phase 6 until the user accepts.
 
 ---
 
@@ -121,7 +123,7 @@ docs/
 | 6.2 Thumbnails | `js/core/thumbnails.js` (small canvas render → data URL stored per revision), `test/thumbnails.test.js` | Generated thumbnail is a valid PNG data URL of the expected small size |
 | 6.3 Library UI | `js/ui/library-panel.js` (list/open/rename/delete, draft-vs-saved indicator, delete confirmation modal, actionable import errors) | — (covered by UAT) |
 
-**UAT:** maintain and reopen multiple WIPs across a page reload without JSON files; delete requires confirmation; a deliberately malformed JSON import leaves the library untouched and shows an actionable error — matching [phases.md](phases.md) Phase 6.
+**Hard phase UAT (after 6.3):** maintain and reopen multiple WIPs across a page reload without JSON files; delete requires confirmation; a deliberately malformed JSON import leaves the library untouched and shows an actionable error — matching [phases.md](phases.md) Phase 6. Agent runs this UAT script once in Chrome and records the result before marking Phase 6 done; do not start Phase 7 until the user accepts.
 
 ---
 
@@ -136,7 +138,7 @@ docs/
 | 7.2 SVG export | `js/core/export-svg.js`, `test/export-svg.test.js` | Exported Blob's MIME type and root element are valid SVG for `clean-vector`; the same call path for `ink-tonal` (raster-only) is refused with a named "unsupported" result, not an empty/garbage file |
 | 7.3 UI capability gating | `js/ui/export-panel.js` updated: "Export SVG" is disabled with an inline explanation whenever the active style's `capabilities.svg` is `false` | — (covered by UAT) |
 
-**UAT:** switch the flow system to `clean-vector`, export SVG, reopen the file directly in a browser, and confirm it matches the on-screen composition — matching [phases.md](phases.md) Phase 7.
+**Hard phase UAT:** switch the flow system to `clean-vector`, export SVG, reopen the file directly in a browser, and confirm it matches the on-screen composition — matching [phases.md](phases.md) Phase 7.
 
 ---
 
@@ -150,7 +152,7 @@ docs/
 | 8.1 `ink-growth` system | `js/systems/ink-growth.js`, `test/ink-growth.test.js` | Across a small matrix of param extremes, a fixed seed always produces finite, in-bounds geometry (no `NaN`/`Infinity`, no coordinates outside the `normalized-v1` rectangle); default params produce a measurable branch-count asymmetry across N seeds (non-zero variance left vs. right), encoded as a numeric assertion so a regression to a symmetric binary tree fails the test; emitted stroke shapes (`closed`/`fill`/`tags` combinations) are all within the required IR types both `clean-vector` and `ink-tonal` declare support for, per each style's `capabilities` |
 | 8.2 Registration + preset picker | `js/core/bootstrap.js` updated; system switcher added to UI | — (covered by UAT) |
 
-**UAT:** create and fork `ink-growth` works in both v1 styles; visually confirm asymmetry and negative space, not a "fractal tree on black" demo — matching [phases.md](phases.md) Phase 8.
+**Hard phase UAT:** create and fork `ink-growth` works in both v1 styles; visually confirm asymmetry and negative space, not a "fractal tree on black" demo — matching [phases.md](phases.md) Phase 8.
 
 ---
 
@@ -165,7 +167,7 @@ docs/
 | 9.2 Print export pipeline | `js/core/export-print.js` (offscreen canvas at `round(widthIn·dpi) × round(heightIn·dpi)`, pre-allocation memory estimate/guard, progress callback, temp canvas/URL cleanup), `test/export-print.test.js` | The 12×18in @300dpi baseline exports exactly 3600×5400 px with 300-DPI metadata; a synthetic oversized request is rejected by the guard *before* allocation (no attempted `OffscreenCanvas`/`canvas` allocation at the oversized dimensions) |
 | 9.3 Export UI | `js/ui/export-panel.js` updated: width/height/DPI inputs, busy/progress state, error messaging | — (covered by UAT) |
 
-**UAT:** export the 12×18in/300dpi baseline from both v1 styles in Safari, Chrome, and Firefox on macOS; inspect the file in a metadata-aware image application to confirm pixel dimensions and embedded DPI — matching [phases.md](phases.md) Phase 9.
+**Hard phase UAT:** export the 12×18in/300dpi baseline from both v1 styles in Safari, Chrome, and Firefox on macOS; inspect the file in a metadata-aware image application to confirm pixel dimensions and embedded DPI — matching [phases.md](phases.md) Phase 9.
 
 ---
 
@@ -186,5 +188,6 @@ Touches only existing `css/*`, `js/ui/*`, `docs/extension-guide.md`, and `README
 - Every phase above corresponds 1:1 to a phase in [phases.md](phases.md); no phase is renumbered, skipped, or reordered.
 - Every automated-verify bullet in [phases.md](phases.md) (Phases 4-10) is covered by at least one slice's automated verify above, including registry/schema validation (Slice 4.5) and migration fixtures (Slice 5.4), which a prior pass of this plan omitted.
 - Every UAT line in [phases.md](phases.md) (Phases 4-10) is repeated verbatim-in-substance at the end of its phase section above.
+- Phase 5 also names a pre-UI contract gate after Slice 5.3 before Slice 5.5; Phases 5–6 require an agent Chrome pass of the hard phase UAT before user acceptance advances the phase.
 - All module/state/geometry/export contracts referenced (`ArtworkRevision`, `ArtworkBundle`, module contract, IR, print/DPI, SVG capability gating, migration hooks) trace to a named section in `tech-brief.md`; none are introduced here without a tech-brief anchor.
 - `docs/extension-guide.md`'s required contents (module interfaces, param vocabulary, IR + compatibility rules, minimal examples, versioning rules, registration steps, verification checklist) are all satisfiable from decisions locked in this plan by the time Slice 4.11 is written.

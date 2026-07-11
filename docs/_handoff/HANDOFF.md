@@ -3,7 +3,7 @@
 **Goal:** Build a programmable generative art canvas for organic, recursive, style-rich abstract art — modernist/ink/Bauhaus-inspired, not cheesy fractal kitsch.
 
 **Current phase:** Phase 5 - Portable checkpoint and fork loop
-**Next action:** Start Slice 5.1 (Document model) from `docs/_handoff/implementation-plan.md`. Add `js/core/document.js` that builds and validates `ArtworkRevision` per the `tech-brief.md` schema, with `test/document.test.js` covering accept/reject paths for required fields and unsupported versions.
+**Next action:** Start Slice 5.2 (Work session) from `docs/_handoff/implementation-plan.md`: add `js/core/work-session.js` with `checkpoint()`, `fork()`, and `restoreRevision(id)`, plus `test/work-session.test.js`. Honor Phase 5 gates: pre-UI contract smoke after 5.3 before 5.5; hard phase UAT after 5.5 before Phase 6.
 
 **Hard invariants:** Preserve exact checkpoint rendering across engine evolution. The shipped tool has no build step and supports both solo exploration and agent-guided extension.
 
@@ -26,5 +26,5 @@
 - lessons.md - curated, accreted toolkit (carried in Required reading)
 - docs/extension-guide.md - extension mechanics (carried in Required reading for this phase)
 
-**Open decisions:** None blocking. Chrome direction is approved and recorded in `lessons.md`.
-**Last updated:** 2026-07-11 after Phase 4 complete (Slices 4.1–4.11 UAT accepted and committed)
+**Open decisions:** None blocking. Chrome direction is approved and recorded in `lessons.md`. Phase 5–6 UAT gates (pre-UI after 5.3; hard exits after 5.5/6.3) are recorded in `implementation-plan.md` / `lessons.md`.
+**Last updated:** 2026-07-11 after Slice 5.1 (document model) and Phase 5–6 UAT gates committed; next is Slice 5.2.
