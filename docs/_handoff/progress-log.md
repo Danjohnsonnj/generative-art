@@ -174,3 +174,10 @@
 - Verified: Browser suite 38 passed / 0 failed; console and IDE diagnostics clean. The migration fixture produces the same geometry hash as the equivalent v1 revision.
 - Learned: Historical document references may need a legacy version value that is not a registered module version; isolate that exception to the migration resolver and fixture.
 - Overwrote: `js/core/document.js`, `js/core/bootstrap.js`, `js/systems/flow-field.js`, `test/migration.test.js`, `test/run-tests.js`, `docs/extension-guide.md`, HANDOFF.md, progress-log.md.
+
+## 2026-07-11 - Session 4f: Phase 5 pre-UI contract gate
+
+- Happened: Ran the required bundle I/O smoke before checkpoint UI.
+- Verified: In the browser, export→import was structurally equal; an optional extension field was preserved; a duplicate work ID surfaced exactly `new-work` and `replace` choices.
+- Learned: The pure bundle API makes this gate executable without touching live application state.
+- Overwrote: HANDOFF.md, progress-log.md.
