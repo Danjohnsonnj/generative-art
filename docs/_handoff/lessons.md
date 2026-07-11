@@ -77,3 +77,9 @@
 - Context: The desktop control rail grows taller than the viewport, while the artwork must remain visible during page scroll.
 - Lesson: At desktop widths only, make the header sticky and measure its rendered height with `ResizeObserver` into `--app-header-height`. Make the canvas workspace sticky below that offset, with height `calc(100dvh - var(--app-header-height))`, then center the frame via `place-content` and `place-items`. Do not apply this behavior on mobile before the floating-panel design work.
 - Evidence: User UAT accepted 2026-07-11.
+
+## Extension docs must phase-scope future contracts
+
+- Context: Slice 4.11 extension guide initially described migration hooks, SVG capability, and full tech-brief verification as if they were live.
+- Lesson: Keep the full contract in the guide, but label what Phase 4 actually enforces today versus what later phases introduce. Authoring conventions that are not runtime-enforced (for example `defaultParams` completeness) must say so, or agents invent loaders and checks that do not exist yet.
+- Evidence: Independent review of `docs/extension-guide.md`, 2026-07-11; applied before Slice 4.11 UAT.

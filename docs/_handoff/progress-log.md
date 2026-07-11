@@ -132,3 +132,10 @@
 - Verified: 23 browser tests pass with zero console errors; the export test validates the PNG signature and IHDR pixel dimensions. Chrome smoke export completed at the live canvas dimensions, and the user confirmed UAT passed.
 - Learned: Display export should serialize the current raster surface rather than recreate it, so its visual result and device-pixel dimensions exactly match the live view.
 - Overwrote: `js/core/export-png.js`, `js/ui/export-panel.js`, `test/export-png.test.js`, `test/run-tests.js`, `js/main.js`, `index.html`, `css/base.css`, HANDOFF.md, progress-log.md.
+
+## 2026-07-11 - Session 3g: Slice 4.11 extension guide + Phase 4 close
+
+- Happened: Wrote `docs/extension-guide.md` with the seven tech-brief extension-contract sections. Independent review feedback was triaged and applied: clarify Phase 4 vs future SVG/migration boundaries, state that `defaultParams` is an authoring convention not registry-enforced, align minimal examples with validation calls, and expand the verification checklist into phase-scoped checks. User accepted UAT; Slices 4.10–4.11 committed together as `d4a4770`.
+- Verified: All seven required headings present; Markdown lint clean; claims spot-checked against `js/core/*`, `js/ui/schema-form.js`, and `tech-brief.md`.
+- Learned: Extension docs must distinguish current runtime behavior from later-phase contracts so a cold-start agent does not invent migration or SVG loaders before those phases exist.
+- Overwrote: `docs/extension-guide.md`, HANDOFF.md, progress-log.md, lessons.md.
