@@ -111,3 +111,17 @@
 - Verified: 20 browser tests pass with zero console errors/issues and no IDE diagnostics. Both theme token sets and the generated control preview were visually inspected.
 - Learned: Keep 44px interaction areas independent of the compact visual density; direct number entry prevents hardware-inspired faders from reducing precision.
 - Overwrote: `index.html`, `css/base.css`, `css/controls.css`, `js/ui/schema-form.js`, browser tests, HANDOFF.md.
+
+## 2026-07-11 - Session 3d: Slice 4.9 UAT + canvas centering
+
+- Happened: Wired the Flow / ink wash preset through the registry, live renderer, schema controls, seed controls, and approved light/dark, dock, and edge-peek rack behavior. User accepted the Slice 4.9 UAT. Corrected `.canvas-workspace` so its frame is centered in both axes through page scrolling by centering the grid content as well as its item.
+- Verified: 22 browser tests pass with zero console errors/issues and no IDE diagnostics. The canvas frame measured horizontally centered and vertically centered to within 0.004px at desktop and 390px narrow viewports, including after a 520px page scroll.
+- Learned: In a grid workspace expanded by a taller sibling rail, `place-items` centers only inside the implicit track; pair it with `place-content: center` to center that track in the full workspace.
+- Overwrote: `css/base.css`, HANDOFF.md, progress-log.md.
+
+## 2026-07-11 - Session 3e: Desktop sticky canvas stage
+
+- Happened: Replaced the insufficient full-workspace centering behavior with an accepted desktop sticky stage: the header stays pinned; the canvas workspace fills the remaining viewport and keeps the rendered frame centered while the control rail scrolls. `ResizeObserver` keeps the CSS header offset accurate. Mobile retains ordinary scrolling pending the planned floating-panel work.
+- Verified: Desktop stage stayed at `top: 64px` with `1136px` available height on a 1440×1200 viewport and remained centered after an 800px page scroll. Console and IDE diagnostics were clean. User accepted UAT.
+- Learned: A viewport-persistent canvas needs sticky positioning and a dynamically measured sibling offset; centering within a tall grid row alone is not sufficient.
+- Overwrote: `index.html`, `js/main.js`, `css/base.css`, HANDOFF.md, lessons.md, progress-log.md.

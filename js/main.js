@@ -11,6 +11,7 @@ const elements = {
   controlContent: document.querySelector("#control-content"),
   dimensionReadout: document.querySelector("#dimension-readout"),
   dockToggle: document.querySelector("#dock-toggle"),
+  header: document.querySelector("#app-header"),
   newSeed: document.querySelector("#new-seed"),
   peek: document.querySelector("#rail-peek"),
   presetTitle: document.querySelector("#preset-title"),
@@ -27,6 +28,13 @@ const elements = {
 
 const modules = resolvePreset(flowInkWash);
 
+function syncHeaderHeight() {
+  root.style.setProperty(
+    "--app-header-height",
+    `${elements.header.getBoundingClientRect().height}px`,
+  );
+}
+
 function initialState() {
   return {
     seed: flowInkWash.rng.seed,
@@ -36,6 +44,10 @@ function initialState() {
 }
 
 let state = initialState();
+
+const headerObserver = new ResizeObserver(syncHeaderHeight);
+headerObserver.observe(elements.header);
+syncHeaderHeight();
 
 const canvasView = createCanvasView({
   canvas: elements.canvas,

@@ -343,11 +343,27 @@ h1 {
 .canvas-workspace {
   grid-area: workspace;
   display: grid;
+  place-content: center;
   place-items: center;
   min-width: 0;
   min-height: 0;
   padding: clamp(1.5rem, 4vw, 3.5rem);
   background: var(--stage);
+}
+
+@media (min-width: 48.001rem) {
+  .app-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+
+  .canvas-workspace {
+    position: sticky;
+    top: var(--app-header-height, 4rem);
+    align-self: start;
+    height: calc(100dvh - var(--app-header-height, 4rem));
+  }
 }
 
 .canvas-frame {

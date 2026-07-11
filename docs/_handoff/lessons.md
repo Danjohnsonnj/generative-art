@@ -71,3 +71,9 @@
 - Context: Locking the interface direction after the first tonal renderer and before schema-driven controls.
 - Lesson: Treat monochrome Teenage Engineering hardware as a visual metaphor, not an interaction model. Use a graphite chassis around a pale artwork stage, with a token-equivalent pale-aluminum light mode; neutral sans UI type; monospace only for readouts; flat panels, hairlines, tiny radii, and scarce semantic LED color. Keep familiar software controls with 44px targets. The control rack docks left/right and collapses to an edge peek in Phase 4; evaluate true free-floating panels in Phase 10.
 - Evidence: User-approved chrome aesthetics gate, 2026-07-11.
+
+## Desktop canvas is a sticky stage
+
+- Context: The desktop control rail grows taller than the viewport, while the artwork must remain visible during page scroll.
+- Lesson: At desktop widths only, make the header sticky and measure its rendered height with `ResizeObserver` into `--app-header-height`. Make the canvas workspace sticky below that offset, with height `calc(100dvh - var(--app-header-height))`, then center the frame via `place-content` and `place-items`. Do not apply this behavior on mobile before the floating-panel design work.
+- Evidence: User UAT accepted 2026-07-11.
