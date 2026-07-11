@@ -216,3 +216,10 @@
 - Verified: Browser suite 46 passed / 0 failed, with a clean console and IDE diagnostics. Component tests cover work listing, draft-vs-saved state, open/rename actions, and delete confirmation.
 - Learned: A persisted WIP needs a saved draft as well as immutable revisions; show the saved state only after the IndexedDB write returns.
 - Overwrote: `index.html`, `css/base.css`, `js/core/store-indexeddb.js`, `js/main.js`, `js/ui/library-panel.js`, `test/store-indexeddb.test.js`, `test/library-panel.test.js`, `test/run-tests.js`, HANDOFF.md, implementation-plan.md, lessons.md, `docs/extension-guide.md`, progress-log.md.
+
+## 2026-07-11 - Session 5d: Phase 6 hard UAT accepted
+
+- Happened: User accepted the Phase 6 hard UAT (multiple WIPs across reload without JSON; delete confirmation; malformed JSON import leaves library unchanged). Advanced handoff to Phase 7.
+- Verified: User acceptance of the Phase 6 exit criteria; Slices 6.1–6.3 already committed; browser suite last green at 46 passed / 0 failed. Malformed import surfaced: `Could not import JSON: ArtworkBundle JSON is invalid: Expected property name or '}' in JSON at position 1 (line 1 column 2)`.
+- Learned: Prefixing the parser/validation message with `Could not import JSON:` keeps the failure actionable without inventing a separate error taxonomy.
+- Overwrote: HANDOFF.md, phases.md, implementation-plan.md, progress-log.md, lessons.md, `docs/extension-guide.md`.

@@ -2,7 +2,7 @@
 
 Cold-start executable plan for [phases.md](phases.md) Phases 4-10. Names exact files, one implementation path, prerequisites, out-of-scope work, and deterministic verification per increment. This document does not restate product/technical rationale — see [product-brief.md](product-brief.md) and [tech-brief.md](tech-brief.md) for that.
 
-**Status:** Approved and in execution. Phases 4–5 complete; Phase 6 implementation complete and awaiting hard UAT. See [HANDOFF.md](HANDOFF.md) for the current next action.
+**Status:** Approved and in execution. Phases 4–6 complete; Phase 7 next. See [HANDOFF.md](HANDOFF.md) for the current next action.
 
 ## Global prerequisites (one-time, before Slice 4.1)
 
@@ -123,7 +123,7 @@ docs/
 | 6.2 Thumbnails | `js/core/thumbnails.js` (small canvas render → data URL stored per revision), `test/thumbnails.test.js` | Generated thumbnail is a valid PNG data URL of the expected small size |
 | 6.3 Library UI | `js/ui/library-panel.js` (list/open/rename/delete, draft-vs-saved indicator, delete confirmation modal, actionable import errors) | — (covered by UAT) |
 
-**Hard phase UAT (after 6.3):** maintain and reopen multiple WIPs across a page reload without JSON files; delete requires confirmation; a deliberately malformed JSON import leaves the library untouched and shows an actionable error — matching [phases.md](phases.md) Phase 6. Agent runs this UAT script once in Chrome and records the result before marking Phase 6 done; do not start Phase 7 until the user accepts.
+**Hard phase UAT (after 6.3):** maintain and reopen multiple WIPs across a page reload without JSON files; delete requires confirmation; a deliberately malformed JSON import leaves the library untouched and shows an actionable error — matching [phases.md](phases.md) Phase 6. Agent runs this UAT script once in Chrome and records the result before marking Phase 6 done; do not start Phase 7 until the user accepts. **Accepted 2026-07-11.**
 
 ---
 

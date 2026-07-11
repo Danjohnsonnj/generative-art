@@ -34,7 +34,7 @@ See [implementation-plan.md](implementation-plan.md) for the exact files, slice 
 
 - Add IndexedDB work/revision storage, previews, draft recovery, load/delete flows, confirmation, and actionable errors.
 - Automated verify: create/load/revise/delete and failed-import isolation pass against a clean test database.
-- Hard UAT (after library UI): maintain and reopen multiple WIPs without JSON files; destructive actions never occur silently. Agent runs once in Chrome; user must accept before Phase 7.
+- Hard UAT (after library UI): maintain and reopen multiple WIPs without JSON files; destructive actions never occur silently. Agent runs once in Chrome; user must accept before Phase 7. **Done 2026-07-11: Slices 6.1–6.3 committed; hard UAT accepted.**
 
 ## Phase 7 - Vector path
 

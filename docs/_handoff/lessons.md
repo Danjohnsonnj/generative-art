@@ -113,3 +113,9 @@
 - Context: A browser library should preserve an editable work across page reloads while retaining immutable checkpoint history.
 - Lesson: Store the current draft alongside its revision list, and persist the whole validated snapshot after draft changes. The library UI's saved indicator must reflect the persistence result, not merely a local state update.
 - Evidence: Phase 6 Slice 6.3, 2026-07-11.
+
+## Malformed import errors should keep the parser detail
+
+- Context: Phase 6 UAT deliberately imports invalid JSON to prove library isolation.
+- Lesson: Surface `Could not import JSON:` plus the underlying parse/validation message. That is actionable enough; do not invent a second error taxonomy or hide the engine's position hint.
+- Evidence: Phase 6 hard UAT, 2026-07-11.
