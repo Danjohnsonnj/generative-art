@@ -1,4 +1,5 @@
 import { rngMeta } from "./rng.js";
+import { validateArtworkRevision } from "./document.js";
 import {
   getStyle,
   getSystem,
@@ -36,4 +37,14 @@ export function resolvePreset(preset) {
   }
 
   return { system, style };
+}
+
+export function resolveArtworkRevision(revision) {
+  validateArtworkRevision(revision);
+
+  return resolvePreset({
+    rng: revision.rng,
+    system: revision.system,
+    style: revision.style,
+  });
 }

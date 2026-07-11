@@ -225,6 +225,19 @@ values returned by `getRevisions()` as immutable; edit only a draft supplied by
 The work-session module is an application-state API, not a module-extension
 point. Later Phase 5 slices add portable bundle I/O, migrations, and UI wiring.
 
+### Phase 5 portable bundles
+
+`js/core/bundle-io.js` serializes an `ArtworkBundle` with the immutable
+revisions, current draft, work metadata, and extension objects. Use
+`createArtworkBundle()` and `serializeArtworkBundle()` to export, then
+`parseArtworkBundle()` to validate incoming JSON before accepting it.
+`prepareArtworkBundleImport()` reports a collision and offers `new-work` or
+`replace`; it never silently overwrites existing state.
+
+Unknown optional fields in `extensions` survive a parse/serialize round-trip.
+Unsupported document, module, RNG, or IR versions reject with
+`ArtworkBundleValidationError` before any application state changes.
+
 ## 6. Exact extension steps
 
 1. Read `docs/_handoff/HANDOFF.md`, this guide, and the active phase plan before editing.

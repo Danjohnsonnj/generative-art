@@ -3,7 +3,7 @@
 **Goal:** Build a programmable generative art canvas for organic, recursive, style-rich abstract art — modernist/ink/Bauhaus-inspired, not cheesy fractal kitsch.
 
 **Current phase:** Phase 5 - Portable checkpoint and fork loop
-**Next action:** Start Slice 5.3 (Bundle I/O) from `docs/_handoff/implementation-plan.md`: add `js/core/bundle-io.js` and `test/bundle-io.test.js` for portable, atomic JSON export/import and explicit collision decisions. Honor the pre-UI contract smoke after 5.3 before 5.5.
+**Next action:** Start Slice 5.4 (Migration fixture) from `docs/_handoff/implementation-plan.md`: add the synthetic `flow-field` v0→v1 parameter migration and `test/migration.test.js`. Then run the pre-UI contract smoke before starting Slice 5.5.
 
 **Hard invariants:** Preserve exact checkpoint rendering across engine evolution. The shipped tool has no build step and supports both solo exploration and agent-guided extension.
 
@@ -27,4 +27,4 @@
 - docs/extension-guide.md - extension mechanics (carried in Required reading for this phase)
 
 **Open decisions:** None blocking. Chrome direction is approved and recorded in `lessons.md`. Phase 5–6 UAT gates (pre-UI after 5.3; hard exits after 5.5/6.3) are recorded in `implementation-plan.md` / `lessons.md`.
-**Last updated:** 2026-07-11 after Slice 5.2 (work session) verified; next is Slice 5.3.
+**Last updated:** 2026-07-11 after Slice 5.3 (bundle I/O) verified; next is Slice 5.4.

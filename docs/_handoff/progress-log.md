@@ -160,3 +160,10 @@
 - Verified: Browser suite 31 passed / 0 failed; console and IDE diagnostics clean. Tests prove immutable checkpoint history, fork source linkage, and restored geometry identity.
 - Learned: Session reads must return clones or frozen revisions so editing a current draft cannot rewrite checkpoint history.
 - Overwrote: `js/core/work-session.js`, `test/work-session.test.js`, `test/run-tests.js`, `docs/extension-guide.md`, HANDOFF.md, progress-log.md.
+
+## 2026-07-11 - Session 4d: Slice 5.3 bundle I/O
+
+- Happened: Added portable `ArtworkBundle` construction, JSON serialization/parsing, required-version resolution, optional-extension preservation, and non-mutating collision detection. Added revision resolution to bootstrap so bundle validation checks registered RNG/module/IR compatibility.
+- Verified: Browser suite 36 passed / 0 failed; console and IDE diagnostics clean. Fixtures cover structural round-trip, unknown optional fields, unsupported module/schema versions, and collision choices without mutating existing IDs.
+- Learned: Keep bundle parsing and collision detection pure so invalid imports cannot partially mutate in-memory or future persistent state.
+- Overwrote: `js/core/bundle-io.js`, `js/core/bootstrap.js`, `test/bundle-io.test.js`, `test/run-tests.js`, `docs/extension-guide.md`, HANDOFF.md, progress-log.md.

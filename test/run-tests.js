@@ -1,4 +1,5 @@
 import { assert } from "./assert.js";
+import * as bundleIoTests from "./bundle-io.test.js";
 import * as documentTests from "./document.test.js";
 import * as exportPngTests from "./export-png.test.js";
 import * as flowFieldTests from "./flow-field.test.js";
@@ -17,6 +18,7 @@ const testModules = [
   registryTests,
   documentTests,
   workSessionTests,
+  bundleIoTests,
   flowFieldTests,
   inkTonalTests,
   exportPngTests,
