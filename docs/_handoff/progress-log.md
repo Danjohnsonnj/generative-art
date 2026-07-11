@@ -181,3 +181,10 @@
 - Verified: In the browser, export→import was structurally equal; an optional extension field was preserved; a duplicate work ID surfaced exactly `new-work` and `replace` choices.
 - Learned: The pure bundle API makes this gate executable without touching live application state.
 - Overwrote: HANDOFF.md, progress-log.md.
+
+## 2026-07-11 - Session 4g: Slice 5.5 checkpoint UI
+
+- Happened: Added the checkpoint panel and wired it to the live preset state. It saves immutable revisions, forks the active revision, restores history entries, exports validated JSON, and imports it with an explicit replace/new-work choice. New-work imports remap work/revision lineage IDs.
+- Verified: Browser component suite reaches 40 passed / 0 failed. Chrome app smoke confirmed the panel loads cleanly, a checkpoint appears in history, and Fork creates a new work with its own first revision.
+- Learned: The UI can preserve the small Phase 5 scope by treating a draft as a projection of the existing schema controls and synchronizing it only at a persistence boundary.
+- Overwrote: `index.html`, `css/base.css`, `js/main.js`, `js/ui/checkpoint-panel.js`, `test/checkpoint-panel.test.js`, `test/run-tests.js`, `docs/extension-guide.md`, HANDOFF.md, progress-log.md.

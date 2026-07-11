@@ -243,6 +243,13 @@ Unknown optional fields in `extensions` survive a parse/serialize round-trip.
 Unsupported document, module, RNG, or IR versions reject with
 `ArtworkBundleValidationError` before any application state changes.
 
+### Phase 5 checkpoint panel
+
+`js/ui/checkpoint-panel.js` is wired by `js/main.js`. It exposes Save checkpoint,
+Fork, revision-history restore, Export JSON, and Import JSON. Import explicitly
+asks whether an open work should be replaced or copied as a new work; the latter
+remaps its work and revision IDs before opening it.
+
 ## 6. Exact extension steps
 
 1. Read `docs/_handoff/HANDOFF.md`, this guide, and the active phase plan before editing.
