@@ -69,12 +69,26 @@ export const tests = [
     async fn(assert) {
       await withTestStore(async (store) => {
         const snapshot = createFixtureSnapshot();
+        snapshot.revisions = snapshot.revisions.map((revision) => ({
+          ...revision,
+          thumbnail: {
+            dataUrl: "data:image/png;base64,fixture",
+            widthPx: 192,
+            heightPx: 128,
+          },
+        }));
+        snapshot.work.thumbnail = {
+          dataUrl: "data:image/png;base64,fixture",
+          widthPx: 192,
+          heightPx: 128,
+        };
         await store.createWork(snapshot);
 
         const listed = await store.listWorks();
         assert.equal(listed.length, 1);
         assert.equal(listed[0].workId, snapshot.work.workId);
         assert.equal(listed[0].title, "Flow study");
+        assert.equal(listed[0].thumbnail.dataUrl, "data:image/png;base64,fixture");
 
         const loaded = await store.loadWork(snapshot.work.workId);
         assert.equal(JSON.stringify(loaded), JSON.stringify(snapshot));

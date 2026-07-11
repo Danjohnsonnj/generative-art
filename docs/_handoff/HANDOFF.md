@@ -2,8 +2,8 @@
 
 **Goal:** Build a programmable generative art canvas for organic, recursive, style-rich abstract art — modernist/ink/Bauhaus-inspired, not cheesy fractal kitsch.
 
-**Current phase:** Phase 6 - Browser library (Slices 6.1–6.2 complete)
-**Next action:** Start Slice 6.3 (library UI) from `docs/_handoff/implementation-plan.md`: add `js/ui/library-panel.js`, wire list/open/rename/delete and draft-vs-saved state into `js/main.js`, include delete confirmation and actionable import errors. Run the hard Phase 6 UAT after this slice and stop for user acceptance.
+**Current phase:** Phase 6 - Browser library (implementation complete; UAT pending)
+**Next action:** Run the Phase 6 hard UAT from `docs/_handoff/implementation-plan.md`: maintain and reopen multiple WIPs across a page reload without JSON files; confirm delete requires confirmation; import deliberately malformed JSON and verify the library is unchanged with an actionable error. Stop for user acceptance before Phase 7.
 
 **Hard invariants:** Preserve exact checkpoint rendering across engine evolution. The shipped tool has no build step and supports both solo exploration and agent-guided extension.
 
@@ -26,5 +26,5 @@
 - lessons.md - curated, accreted toolkit (carried in Required reading)
 - docs/extension-guide.md - extension mechanics (carried in Required reading for this phase)
 
-**Open decisions:** None blocking. Chrome direction is approved and recorded in `lessons.md`. Phase 5 hard UAT accepted 2026-07-11. Phase 6 hard UAT remains after Slice 6.3.
-**Last updated:** 2026-07-11 after Slice 6.2: checkpoint thumbnails are green at 44 browser tests; next is Slice 6.3 and the Phase 6 hard UAT.
+**Open decisions:** None blocking. Chrome direction is approved and recorded in `lessons.md`. Phase 5 hard UAT accepted 2026-07-11. Phase 6 hard UAT is ready for user acceptance.
+**Last updated:** 2026-07-11 after Slice 6.3: browser library UI is green at 46 browser tests; next is the Phase 6 hard UAT.

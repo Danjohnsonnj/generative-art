@@ -6,6 +6,7 @@ import * as exportPngTests from "./export-png.test.js";
 import * as flowFieldTests from "./flow-field.test.js";
 import * as geometryTests from "./geometry.test.js";
 import * as inkTonalTests from "./ink-tonal.test.js";
+import * as libraryPanelTests from "./library-panel.test.js";
 import * as migrationTests from "./migration.test.js";
 import * as presetWiringTests from "./preset-wiring.test.js";
 import * as registryTests from "./registry.test.js";
@@ -27,6 +28,7 @@ const testModules = [
   checkpointPanelTests,
   flowFieldTests,
   inkTonalTests,
+  libraryPanelTests,
   exportPngTests,
   schemaFormTests,
   presetWiringTests,

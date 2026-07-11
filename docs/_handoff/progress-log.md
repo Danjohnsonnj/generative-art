@@ -209,3 +209,10 @@
 - Verified: Browser suite 44 passed / 0 failed; console clean. The thumbnail test validates PNG data URL encoding and its 192 × 128 pixel dimensions for the default 1.5 aspect-ratio fixture.
 - Learned: A library preview must render from revision state rather than capture the live canvas, preserving checkpoint identity across viewport changes.
 - Overwrote: `js/core/thumbnails.js`, `test/thumbnails.test.js`, `test/run-tests.js`, HANDOFF.md, implementation-plan.md, lessons.md, `docs/extension-guide.md`, progress-log.md.
+
+## 2026-07-11 - Session 5c: Slice 6.3 library UI
+
+- Happened: Added the Library / WIP panel and integrated it with IndexedDB snapshots. The app creates/reopens persisted works, saves drafts independently of checkpoint history, supports open/rename/delete with a confirmation modal, and reports actionable JSON import errors without accepting malformed data.
+- Verified: Browser suite 46 passed / 0 failed, with a clean console and IDE diagnostics. Component tests cover work listing, draft-vs-saved state, open/rename actions, and delete confirmation.
+- Learned: A persisted WIP needs a saved draft as well as immutable revisions; show the saved state only after the IndexedDB write returns.
+- Overwrote: `index.html`, `css/base.css`, `js/core/store-indexeddb.js`, `js/main.js`, `js/ui/library-panel.js`, `test/store-indexeddb.test.js`, `test/library-panel.test.js`, `test/run-tests.js`, HANDOFF.md, implementation-plan.md, lessons.md, `docs/extension-guide.md`, progress-log.md.

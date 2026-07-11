@@ -158,6 +158,7 @@ function createStoredWork(snapshot) {
     ...snapshot.work,
     draft: snapshot.draft,
     revisionIds: snapshot.revisions.map((revision) => revision.revisionId),
+    thumbnail: snapshot.revisions.at(-1)?.thumbnail ?? null,
   };
 }
 

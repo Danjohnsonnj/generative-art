@@ -403,6 +403,120 @@ h1 {
   text-transform: none;
 }
 
+.library-panel {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid var(--edge);
+}
+
+.library-panel__title,
+.library-panel__status {
+  margin: 0;
+  font: 500 0.58rem/1 var(--font-readout);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.library-panel__title {
+  color: var(--text-muted);
+}
+
+.library-panel__status {
+  color: var(--readout);
+}
+
+.library-panel__list {
+  display: grid;
+  gap: 0.35rem;
+  max-height: 13rem;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.library-panel__work {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 0.35rem;
+  padding: 0.35rem;
+  border: 1px solid var(--edge);
+  border-radius: var(--radius);
+}
+
+.library-panel__work[data-active] {
+  border-color: var(--readout);
+}
+
+.library-panel__thumbnail {
+  width: 3rem;
+  height: 2rem;
+  object-fit: cover;
+  border: 1px solid var(--edge);
+  background: var(--panel-raised);
+}
+
+.library-panel__title-input {
+  min-width: 0;
+  border: 0;
+  color: var(--text);
+  background: transparent;
+  font: 600 0.65rem/1.2 var(--font-ui);
+}
+
+.library-panel__actions {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.25rem;
+}
+
+.library-panel button {
+  min-height: 1.85rem;
+  border: 1px solid var(--edge-strong);
+  border-radius: var(--radius);
+  color: var(--text);
+  background: var(--panel-raised);
+  font: 600 0.5rem/1 var(--font-ui);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.library-panel button:hover {
+  border-color: var(--text-muted);
+}
+
+.library-panel button:focus-visible,
+.library-panel__title-input:focus-visible {
+  outline: 2px solid var(--readout);
+  outline-offset: 2px;
+}
+
+.library-panel__dialog {
+  max-width: 22rem;
+  border: 1px solid var(--edge-strong);
+  border-radius: var(--radius);
+  color: var(--text);
+  background: var(--panel-raised);
+}
+
+.library-panel__dialog::backdrop {
+  background: rgb(0 0 0 / 0.55);
+}
+
+.library-panel__dialog-text {
+  margin: 0 0 1rem;
+  font: 500 0.8rem/1.4 var(--font-ui);
+}
+
+.library-panel__dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
 .control-scroll {
   min-height: 0;
   padding: 0 0.35rem 1rem 0.5rem;

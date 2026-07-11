@@ -107,3 +107,9 @@
 - Context: Library previews must accurately represent versioned work independent of the live viewport.
 - Lesson: Resolve the stored revision first, generate its geometry from the recorded seed, then render a fixed small Canvas. Store the resulting PNG data URL on a cloned revision record so callers can persist it without mutating immutable history.
 - Evidence: Phase 6 Slice 6.2, 2026-07-11.
+
+## Persist drafts independently of checkpoints
+
+- Context: A browser library should preserve an editable work across page reloads while retaining immutable checkpoint history.
+- Lesson: Store the current draft alongside its revision list, and persist the whole validated snapshot after draft changes. The library UI's saved indicator must reflect the persistence result, not merely a local state update.
+- Evidence: Phase 6 Slice 6.3, 2026-07-11.
