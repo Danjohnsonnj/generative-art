@@ -12,6 +12,7 @@ import * as registryTests from "./registry.test.js";
 import * as rngTests from "./rng.test.js";
 import * as schemaFormTests from "./schema-form.test.js";
 import * as storeIndexedDbTests from "./store-indexeddb.test.js";
+import * as thumbnailTests from "./thumbnails.test.js";
 import * as workSessionTests from "./work-session.test.js";
 
 // Add each browser test module here as it is introduced.
@@ -30,6 +31,7 @@ const testModules = [
   schemaFormTests,
   presetWiringTests,
   storeIndexedDbTests,
+  thumbnailTests,
 ];
 
 const summaryElement = document.querySelector("[data-test-summary]");

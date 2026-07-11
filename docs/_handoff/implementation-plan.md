@@ -2,7 +2,7 @@
 
 Cold-start executable plan for [phases.md](phases.md) Phases 4-10. Names exact files, one implementation path, prerequisites, out-of-scope work, and deterministic verification per increment. This document does not restate product/technical rationale — see [product-brief.md](product-brief.md) and [tech-brief.md](tech-brief.md) for that.
 
-**Status:** Approved and in execution. Phases 4–5 complete; Phase 6 Slice 6.1 complete, Slice 6.2 next. See [HANDOFF.md](HANDOFF.md) for the current next action.
+**Status:** Approved and in execution. Phases 4–5 complete; Phase 6 Slices 6.1–6.2 complete, Slice 6.3 next. See [HANDOFF.md](HANDOFF.md) for the current next action.
 
 ## Global prerequisites (one-time, before Slice 4.1)
 

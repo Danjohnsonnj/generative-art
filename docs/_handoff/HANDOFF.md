@@ -2,8 +2,8 @@
 
 **Goal:** Build a programmable generative art canvas for organic, recursive, style-rich abstract art — modernist/ink/Bauhaus-inspired, not cheesy fractal kitsch.
 
-**Current phase:** Phase 6 - Browser library (Slice 6.1 complete)
-**Next action:** Start Slice 6.2 (thumbnails) from `docs/_handoff/implementation-plan.md`: add `js/core/thumbnails.js` and `test/thumbnails.test.js` for small Canvas-rendered PNG data URLs stored per revision. Honor the hard Phase 6 UAT after Slice 6.3.
+**Current phase:** Phase 6 - Browser library (Slices 6.1–6.2 complete)
+**Next action:** Start Slice 6.3 (library UI) from `docs/_handoff/implementation-plan.md`: add `js/ui/library-panel.js`, wire list/open/rename/delete and draft-vs-saved state into `js/main.js`, include delete confirmation and actionable import errors. Run the hard Phase 6 UAT after this slice and stop for user acceptance.
 
 **Hard invariants:** Preserve exact checkpoint rendering across engine evolution. The shipped tool has no build step and supports both solo exploration and agent-guided extension.
 
@@ -27,4 +27,4 @@
 - docs/extension-guide.md - extension mechanics (carried in Required reading for this phase)
 
 **Open decisions:** None blocking. Chrome direction is approved and recorded in `lessons.md`. Phase 5 hard UAT accepted 2026-07-11. Phase 6 hard UAT remains after Slice 6.3.
-**Last updated:** 2026-07-11 after Slice 6.1: isolated IndexedDB storage is green at 43 browser tests; next is Slice 6.2.
+**Last updated:** 2026-07-11 after Slice 6.2: checkpoint thumbnails are green at 44 browser tests; next is Slice 6.3 and the Phase 6 hard UAT.

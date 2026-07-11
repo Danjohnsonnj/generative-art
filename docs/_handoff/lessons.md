@@ -101,3 +101,9 @@
 - Context: Browser persistence tests need destructive setup and teardown.
 - Lesson: Keep the production and test databases separately named. Delete only `generative-art-canvas-v1-test` before and after tests; production uses `generative-art-canvas-v1`. Validate a complete snapshot before its write transaction, so a malformed import cannot partially alter persisted data.
 - Evidence: Phase 6 Slice 6.1, 2026-07-11.
+
+## Thumbnails are checkpoint renders, not screen captures
+
+- Context: Library previews must accurately represent versioned work independent of the live viewport.
+- Lesson: Resolve the stored revision first, generate its geometry from the recorded seed, then render a fixed small Canvas. Store the resulting PNG data URL on a cloned revision record so callers can persist it without mutating immutable history.
+- Evidence: Phase 6 Slice 6.2, 2026-07-11.

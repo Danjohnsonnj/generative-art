@@ -202,3 +202,10 @@
 - Verified: Browser suite 43 passed / 0 failed; console and IDE diagnostics clean. Tests cover create/list/load/update/delete, preserving a second work while deleting the first, and malformed snapshot rejection with byte-for-byte unchanged existing data.
 - Learned: Validating the full storage snapshot before opening its write transaction prevents malformed imports from partially persisting.
 - Overwrote: `js/core/store-indexeddb.js`, `test/store-indexeddb.test.js`, `test/run-tests.js`, HANDOFF.md, implementation-plan.md, lessons.md, `docs/extension-guide.md`, progress-log.md.
+
+## 2026-07-11 - Session 5b: Slice 6.2 revision thumbnails
+
+- Happened: Added fixed-size Canvas thumbnails that resolve a checkpoint's pinned modules, regenerate its geometry from the recorded seed, and return a cloned revision carrying a PNG data URL thumbnail record for persistence.
+- Verified: Browser suite 44 passed / 0 failed; console clean. The thumbnail test validates PNG data URL encoding and its 192 × 128 pixel dimensions for the default 1.5 aspect-ratio fixture.
+- Learned: A library preview must render from revision state rather than capture the live canvas, preserving checkpoint identity across viewport changes.
+- Overwrote: `js/core/thumbnails.js`, `test/thumbnails.test.js`, `test/run-tests.js`, HANDOFF.md, implementation-plan.md, lessons.md, `docs/extension-guide.md`, progress-log.md.
