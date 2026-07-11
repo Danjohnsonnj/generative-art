@@ -52,7 +52,7 @@ export function renderCanvas({ ctx, geometry, params, widthPx, heightPx }) {
 }
 ```
 
-Every v1 style must provide `renderCanvas`. Phase 4 ships Canvas rendering and PNG export only. `clean-vector@1` now additionally exports `renderSVG({ geometry, params, widthPx, heightPx })` with `capabilities.svg: true`; it produces true vector paths from normalized geometry. The SVG export pipeline and UI capability gating arrive in the remaining Phase 7 slices. Do not represent raster pixels as SVG.
+Every v1 style must provide `renderCanvas`. Phase 4 ships Canvas rendering and PNG export only. `clean-vector@1` additionally exports `renderSVG({ geometry, params, widthPx, heightPx })` with `capabilities.svg: true`; it produces true vector paths from normalized geometry. `exportSvg()` in `js/core/export-svg.js` returns `{ status: "ok", blob }` for that capability and `{ status: "unsupported", reason }` otherwise. UI capability gating arrives in the remaining Phase 7 slice. Do not represent raster pixels as SVG.
 
 ### Registration
 

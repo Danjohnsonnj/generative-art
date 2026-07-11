@@ -230,3 +230,10 @@
 - Verified: Browser suite 48 passed / 0 failed with a clean console. The SVG fixture is byte-stable after whitespace normalization, parses without XML errors, and contains path elements; Canvas rendering returns the requested 600 × 400 surface.
 - Learned: Keeping Canvas and SVG on the same normalized-coordinate conversion gives the export path the same composition without re-running generation.
 - Overwrote: `js/styles/clean-vector.js`, `js/core/bootstrap.js`, `test/clean-vector.test.js`, `test/run-tests.js`, HANDOFF.md, implementation-plan.md, progress-log.md, `docs/extension-guide.md`.
+
+## 2026-07-11 - Session 6b: Slice 7.2 SVG export
+
+- Happened: Added the core SVG export boundary. It turns a vector-capable style's serialized SVG into an `image/svg+xml` Blob and reports unsupported capability explicitly instead of producing a misleading file.
+- Verified: Browser suite 50 passed / 0 failed with a clean console. `clean-vector` exports a valid SVG document; `ink-tonal` returns `{ status: "unsupported", reason }` and no Blob.
+- Learned: A discriminated result preserves the style capability contract at the export boundary and gives the UI a direct explanation source.
+- Overwrote: `js/core/export-svg.js`, `test/export-svg.test.js`, `test/run-tests.js`, HANDOFF.md, implementation-plan.md, progress-log.md, `docs/extension-guide.md`.

@@ -2,7 +2,7 @@
 
 Cold-start executable plan for [phases.md](phases.md) Phases 4-10. Names exact files, one implementation path, prerequisites, out-of-scope work, and deterministic verification per increment. This document does not restate product/technical rationale — see [product-brief.md](product-brief.md) and [tech-brief.md](tech-brief.md) for that.
 
-**Status:** Approved and in execution. Phases 4–6 complete; Phase 7 Slice 7.1 complete. See [HANDOFF.md](HANDOFF.md) for the current next action.
+**Status:** Approved and in execution. Phases 4–6 complete; Phase 7 Slices 7.1–7.2 complete. See [HANDOFF.md](HANDOFF.md) for the current next action.
 
 ## Global prerequisites (one-time, before Slice 4.1)
 
@@ -135,7 +135,7 @@ docs/
 | Slice | Files | Automated verify |
 | --- | --- | --- |
 | 7.1 `clean-vector` style | `js/styles/clean-vector.js` (`renderCanvas` + `renderSVG`, `capabilities: { canvas: true, svg: true }`), `test/clean-vector.test.js` | Fixed seed/params → a deterministic, whitespace-normalized SVG string matches a recorded fixture; parsing the output with `DOMParser` yields no parser errors and contains at least one vector element (`path`/`polygon`). **Complete 2026-07-11.** |
-| 7.2 SVG export | `js/core/export-svg.js`, `test/export-svg.test.js` | Exported Blob's MIME type and root element are valid SVG for `clean-vector`; the same call path for `ink-tonal` (raster-only) is refused with a named "unsupported" result, not an empty/garbage file |
+| 7.2 SVG export | `js/core/export-svg.js`, `test/export-svg.test.js` | Exported Blob's MIME type and root element are valid SVG for `clean-vector`; the same call path for `ink-tonal` (raster-only) is refused with a named "unsupported" result, not an empty/garbage file. **Complete 2026-07-11.** |
 | 7.3 UI capability gating | `js/ui/export-panel.js` updated: "Export SVG" is disabled with an inline explanation whenever the active style's `capabilities.svg` is `false` | — (covered by UAT) |
 
 **Hard phase UAT:** switch the flow system to `clean-vector`, export SVG, reopen the file directly in a browser, and confirm it matches the on-screen composition — matching [phases.md](phases.md) Phase 7.
