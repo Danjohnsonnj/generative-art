@@ -65,3 +65,9 @@
 - Context: `implementation-plan.md` shipped with its own "Plan-reference check" section asserting full `phases.md` coverage.
 - Lesson: An author-written self-check tends to confirm what the author already believes is covered. Run an independent standalone review (fresh read against the source-of-truth bullets) before trusting a plan's own closing claim — it caught two real contract gaps (schema-value validation, migration fixtures) the self-check had missed.
 - Evidence: `/review-plan` standalone pass on 2026-07-10 found the coverage gaps; a Reliability finding recommended (not yet built) a script diffing `phases.md` bullets against plan slices to catch this automatically on future edits.
+
+## App chrome as a quiet instrument
+
+- Context: Locking the interface direction after the first tonal renderer and before schema-driven controls.
+- Lesson: Treat monochrome Teenage Engineering hardware as a visual metaphor, not an interaction model. Use a graphite chassis around a pale artwork stage, with a token-equivalent pale-aluminum light mode; neutral sans UI type; monospace only for readouts; flat panels, hairlines, tiny radii, and scarce semantic LED color. Keep familiar software controls with 44px targets. The control rack docks left/right and collapses to an edge peek in Phase 4; evaluate true free-floating panels in Phase 10.
+- Evidence: User-approved chrome aesthetics gate, 2026-07-11.

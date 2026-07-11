@@ -2,8 +2,8 @@
 
 **Goal:** Build a programmable generative art canvas for organic, recursive, style-rich abstract art — modernist/ink/Bauhaus-inspired, not cheesy fractal kitsch.
 
-**Current phase:** Phase 4 - First playable study (approved plan, not yet started)
-**Next action:** Start Slice 4.1 (Static shell) from `docs/_handoff/implementation-plan.md`, then proceed slice-by-slice through Phase 4 in order.
+**Current phase:** Phase 4 - First playable study (Slices 4.1–4.8 done; Slice 4.9 UAT pending)
+**Next action:** Complete Slice 4.9 app UAT: preset load, same-seed regenerate, new seed, live control change, reset, theme switch, rack docking, and edge-peek collapse.
 
 **Hard invariants:** Preserve exact checkpoint rendering across engine evolution. The shipped tool has no build step and supports both solo exploration and agent-guided extension.
 
@@ -24,5 +24,5 @@
 - progress-log.md - dated history of decisions/learnings/overwrites
 - lessons.md - curated, accreted toolkit (carried in Required reading)
 
-**Open decisions:** None blocking. Implementation plan is approved; Phase 4 has not yet been started.
-**Last updated:** 2026-07-10 by implementation-plan approval session
+**Open decisions:** None blocking. Chrome direction is approved and recorded in `lessons.md`.
+**Last updated:** 2026-07-11 at the Slice 4.9 UAT gate

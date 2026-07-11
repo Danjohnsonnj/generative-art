@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Generative Art Canvas · Tests</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22><rect width=%22100%22 height=%22100%22 fill=%22%231c1b18%22/><circle cx=%2250%22 cy=%2250%22 r=%2224%22 fill=%22%23ebe8df%22/></svg>">
+    <link rel="stylesheet" href="../css/controls.css">
+    <style>
+      :root {
+        color: #1c1b18;
+        background: #ebe8df;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        max-width: 48rem;
+        margin: 0 auto;
+        padding: 4rem 1.5rem;
+      }
+
+      header {
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid currentColor;
+      }
+
+      h1 {
+        margin: 0 0 0.75rem;
+        font-family: Baskerville, "Times New Roman", serif;
+        font-size: clamp(2.5rem, 8vw, 5rem);
+        font-weight: 400;
+        letter-spacing: -0.04em;
+      }
+
+      [data-test-summary] {
+        margin: 0;
+        color: #6d6a62;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      [data-test-results] {
+        display: grid;
+        gap: 0.75rem;
+        margin: 1.5rem 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .test-result {
+        padding: 1rem;
+        border: 1px solid currentColor;
+      }
+
+      .test-result--passed {
+        color: #285b44;
+      }
+
+      .test-result--failed {
+        color: #9d3829;
+      }
+
+      pre {
+        margin: 0.75rem 0 0;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Browser tests</h1>
+        <p data-test-summary>Running…</p>
+      </header>
+      <ol data-test-results aria-label="Test results"></ol>
+    </main>
+
+    <script type="module" src="./run-tests.js"></script>
+  </body>
+</html>

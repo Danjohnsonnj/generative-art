@@ -87,6 +87,8 @@ docs/
 | 4.10 Display PNG export | `js/core/export-png.js`, `js/ui/export-panel.js`, `test/export-png.test.js` | Exported `Blob` has valid PNG signature bytes; width/height equal the canvas's device-pixel-ratio-scaled dimensions | Click "Export PNG"; file downloads and opens at the expected size in an image viewer |
 | 4.11 Extension guide | `docs/extension-guide.md` | N/A (documentation) | Contains all seven required sections from `tech-brief.md`'s Extension contract, using the concrete `rng`/registry/IR/schema decisions above as its examples |
 
+**Chrome aesthetics gate (after 4.7, before 4.8):** Pause for a short discussion to lock app chrome direction (palette, type, shell layout, control chrome) now that tonal render exists as visual context. Record the locked direction in [lessons.md](lessons.md) / [progress-log.md](progress-log.md) before starting Slice 4.8 so `controls.css` and later panels (checkpoint, library, export) inherit it. Phase 10 remains final polish only.
+
 **Phase 4 exit check:** all `test/*.test.js` pass in `test/index.html`; [phases.md](phases.md)'s stated Phase 4 automated verify and UAT both pass.
 
 ---

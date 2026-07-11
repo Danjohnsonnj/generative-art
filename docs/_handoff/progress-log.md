@@ -90,3 +90,24 @@
 - Verified: N/A (approval is a decision, not a check).
 - Learned: none new.
 - Overwrote: phases.md (Phase 3 marked done/approved), HANDOFF.md (phase → Phase 4 not yet started; next action → Slice 4.1; required reading narrowed to what Phase 4 slices actually need — implementation-plan.md + tech-brief.md + process.md + lessons.md, dropping phases.md now that its per-phase summary is superseded by the plan for execution purposes).
+
+## 2026-07-11 - Session 3: Slice 4.1 + chrome aesthetics gate
+
+- Happened: Implemented Slice 4.1 (static shell: `index.html`, `css/base.css`, empty `js/main.js`). User UAT confirmed. Locked a chrome aesthetics discussion gate after Slice 4.7 / before Slice 4.8 so control chrome inherits the direction with tonal render as visual context; Phase 10 stays final polish.
+- Verified: localhost page loads with zero console errors (favicon 404 fixed via data-URI icon).
+- Learned: Pause chrome aesthetics after first tonal render, before `controls.css`, to avoid reskinning later panels.
+- Overwrote: HANDOFF.md (4.1 done; next → 4.2; gate noted), implementation-plan.md (chrome aesthetics gate note).
+
+## 2026-07-11 - Session 3b: Slices 4.2–4.7 + chrome direction
+
+- Happened: Added the browser harness, versioned FNV-1a/mulberry32 RNG, Geometry IR helpers, module registry/parameter validation, deterministic `flow-field`, and `ink-tonal` Canvas renderer. User accepted the tonal-wash preview. Chrome direction is now a quiet software instrument inspired by monochrome Teenage Engineering hardware: graphite default, token-equivalent pale-aluminum light mode, dockable/collapsible rack, familiar touch-friendly controls, and restrained readout/LED details.
+- Verified: 17 browser tests pass with zero console errors; flow fixture hash is `906c7571`; user confirmed the Slice 4.7 tonal-wash UAT.
+- Learned: Hardware can supply hierarchy and material character without copying hardware interaction; pointer/touch usability wins over rotary-control simulation.
+- Overwrote: application/test files through Slice 4.7, HANDOFF.md, lessons.md. Slice 4.8 will establish the reusable control treatment; docking/collapse/theme behavior wires with the live app in Slice 4.9.
+
+## 2026-07-11 - Session 3c: Chrome applied + Slice 4.8
+
+- Happened: Restyled the static shell as the approved graphite instrument with a verified pale-aluminum token theme. Added schema-generated grouped controls for number, boolean, select, color, text, and seed types; number controls pair a touch-friendly fader with direct numeric entry. Invalid edits are rejected before `onChange`; visibility conditions use `{ param, equals }`.
+- Verified: 20 browser tests pass with zero console errors/issues and no IDE diagnostics. Both theme token sets and the generated control preview were visually inspected.
+- Learned: Keep 44px interaction areas independent of the compact visual density; direct number entry prevents hardware-inspired faders from reducing precision.
+- Overwrote: `index.html`, `css/base.css`, `css/controls.css`, `js/ui/schema-form.js`, browser tests, HANDOFF.md.

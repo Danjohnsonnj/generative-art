@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" data-theme="graphite" data-rail-side="left">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A programmable canvas for exploring generative compositions."
+    >
+    <title>Generative Art Canvas</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22><rect width=%22100%22 height=%22100%22 fill=%22%231c1b18%22/><circle cx=%2250%22 cy=%2250%22 r=%2224%22 fill=%22%23ebe8df%22/></svg>">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/controls.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="brand-lockup">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <p class="app-kicker">Generative Art Canvas</p>
+        </div>
+
+        <dl class="instrument-readout" aria-label="Current artwork state">
+          <div>
+            <dt>System</dt>
+            <dd id="system-readout">Flow-field / 01</dd>
+          </div>
+          <div>
+            <dt>Style</dt>
+            <dd id="style-readout">Ink-tonal / 01</dd>
+          </div>
+          <div>
+            <dt>Seed</dt>
+            <dd id="seed-readout">Standby</dd>
+          </div>
+        </dl>
+
+        <p class="app-status"><span class="status-led"></span>Local</p>
+      </header>
+
+      <aside class="control-rail" id="control-rail" aria-label="Artwork controls">
+        <div class="rail-toolbar" role="toolbar" aria-label="Control rack layout">
+          <button type="button" id="dock-toggle">Dock right</button>
+          <button type="button" id="theme-toggle" aria-pressed="false">Light mode</button>
+          <button type="button" id="rail-collapse" aria-controls="control-rail" aria-expanded="true">Hide</button>
+        </div>
+
+        <div class="control-rail__intro">
+          <p class="section-label">Control / 01</p>
+          <h1 id="preset-title">Flow / ink wash</h1>
+          <p>
+            Shape a deterministic field, then regenerate or move to a new
+            seeded variation.
+          </p>
+        </div>
+
+        <div class="seed-panel">
+          <label for="seed-input">Seed</label>
+          <input type="text" id="seed-input" name="seed" autocomplete="off" spellcheck="false">
+          <div class="rail-actions">
+            <button type="button" id="regenerate">Regenerate</button>
+            <button type="button" id="new-seed">New seed</button>
+            <button type="button" id="reset-preset">Reset</button>
+          </div>
+        </div>
+
+        <div class="control-scroll" id="control-content"></div>
+
+        <p class="rail-status" id="rail-status">Preset online · deterministic</p>
+      </aside>
+
+      <button type="button" class="rail-peek" id="rail-peek" aria-controls="control-rail" hidden>
+        Show controls
+      </button>
+
+      <main class="canvas-workspace">
+        <div class="canvas-frame" aria-label="Artwork canvas">
+          <canvas id="art-canvas" width="1200" height="1200"></canvas>
+          <p class="canvas-empty-state" id="canvas-status">Canvas / ready</p>
+        </div>
+      </main>
+
+      <footer class="app-footer">
+        <p>Deterministic engine · no build step</p>
+        <p class="value-readout" id="dimension-readout">1200 × 1200 px</p>
+      </footer>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
