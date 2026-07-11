@@ -8,6 +8,7 @@ import { createRng } from "./core/rng.js";
 import { openIndexedDbArtworkStore } from "./core/store-indexeddb.js";
 import { createRevisionThumbnail } from "./core/thumbnails.js";
 import { createWorkSession } from "./core/work-session.js";
+import { getStyle, getSystem, listStyles } from "./core/registry.js";
 import flowInkWash from "./presets/flow-ink-wash.js";
 import { createCanvasView } from "./ui/canvas-view.js";
 import { createCheckpointPanel } from "./ui/checkpoint-panel.js";
@@ -40,7 +41,7 @@ const elements = {
   themeToggle: document.querySelector("#theme-toggle"),
 };
 
-const modules = resolvePreset(flowInkWash);
+let modules = resolvePreset(flowInkWash);
 
 function syncHeaderHeight() {
   root.style.setProperty(
@@ -50,16 +51,20 @@ function syncHeaderHeight() {
 }
 
 function initialState() {
+  modules = resolvePreset(flowInkWash);
+
   return {
     seed: flowInkWash.rng.seed,
     systemParams: { ...flowInkWash.system.params },
-    styleParams: { ...flowInkWash.style.params },
+    styleParams: { ...modules.style.default.defaultParams },
   };
 }
 
 let state = initialState();
 let session = createWorkSession({ draft: createDraftFromState(state) });
 let checkpointPanel;
+let currentRender;
+let exportPanel;
 let libraryPanel;
 let libraryStore;
 let libraryWorks = [];
@@ -76,9 +81,21 @@ const canvasView = createCanvasView({
   },
 });
 
-elements.exportContent.append(
-  createExportPanel({ canvas: elements.canvas }),
-);
+exportPanel = createExportPanel({
+  canvas: elements.canvas,
+  getSvgRender() {
+    if (!currentRender) {
+      return null;
+    }
+
+    return {
+      ...currentRender,
+      widthPx: elements.canvas.width,
+      heightPx: elements.canvas.height,
+    };
+  },
+});
+elements.exportContent.append(exportPanel.element);
 
 function createDraftFromState(nextState) {
   return {
@@ -87,11 +104,13 @@ function createDraftFromState(nextState) {
     composition: { ...flowInkWash.composition },
     rng: { ...flowInkWash.rng, seed: nextState.seed },
     system: {
-      ...flowInkWash.system,
+      id: modules.system.default.id,
+      version: modules.system.default.version,
       params: { ...nextState.systemParams },
     },
     style: {
-      ...flowInkWash.style,
+      id: modules.style.default.id,
+      version: modules.style.default.version,
       params: { ...nextState.styleParams },
     },
     irVersion: 1,
@@ -101,6 +120,11 @@ function createDraftFromState(nextState) {
 }
 
 function stateFromDraft(draft) {
+  modules = {
+    system: getSystem(draft.system.id, draft.system.version),
+    style: getStyle(draft.style.id, draft.style.version),
+  };
+
   return {
     seed: draft.rng.seed,
     systemParams: { ...draft.system.params },
@@ -296,6 +320,12 @@ function renderArtwork() {
     params: state.styleParams,
     aspectRatio: flowInkWash.composition.aspectRatio,
   });
+  currentRender = {
+    geometry,
+    style: modules.style,
+    params: state.styleParams,
+  };
+  exportPanel.update();
 
   elements.seedReadout.textContent = state.seed;
   elements.canvasStatus.textContent = "Render / live";
@@ -325,8 +355,58 @@ function createModuleControls(label, module, params, updateParams) {
   return section;
 }
 
+function createStylePicker() {
+  const section = document.createElement("section");
+  const title = document.createElement("h2");
+  const form = document.createElement("div");
+  const control = document.createElement("div");
+  const label = document.createElement("label");
+  const select = document.createElement("select");
+
+  section.className = "module-controls";
+  title.className = "module-controls__title";
+  title.textContent = "Style";
+  form.className = "schema-form";
+  control.className = "schema-control";
+  label.htmlFor = "style-picker";
+  label.textContent = "Renderer";
+  select.id = "style-picker";
+
+  for (const style of listStyles().sort((left, right) =>
+    left.default.label.localeCompare(right.default.label),
+  )) {
+    const option = document.createElement("option");
+    option.value = `${style.default.id}@${style.default.version}`;
+    option.textContent = style.default.label;
+    option.selected =
+      style.default.id === modules.style.default.id &&
+      style.default.version === modules.style.default.version;
+    select.append(option);
+  }
+
+  select.addEventListener("change", () => {
+    const [id, version] = select.value.split("@");
+    modules = {
+      ...modules,
+      style: getStyle(id, Number(version)),
+    };
+    state.styleParams = { ...modules.style.default.defaultParams };
+    syncSessionDraft();
+    updateShellReadouts();
+    renderControls();
+    renderArtwork();
+    schedulePersistence();
+  });
+
+  control.append(label, select);
+  form.append(control);
+  section.append(title, form);
+  return section;
+}
+
 function renderControls() {
   elements.controlContent.replaceChildren(
+    createStylePicker(),
     createModuleControls(
       "System",
       modules.system,

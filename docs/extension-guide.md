@@ -52,7 +52,7 @@ export function renderCanvas({ ctx, geometry, params, widthPx, heightPx }) {
 }
 ```
 
-Every v1 style must provide `renderCanvas`. Phase 4 ships Canvas rendering and PNG export only. `clean-vector@1` additionally exports `renderSVG({ geometry, params, widthPx, heightPx })` with `capabilities.svg: true`; it produces true vector paths from normalized geometry. `exportSvg()` in `js/core/export-svg.js` returns `{ status: "ok", blob }` for that capability and `{ status: "unsupported", reason }` otherwise. UI capability gating arrives in the remaining Phase 7 slice. Do not represent raster pixels as SVG.
+Every v1 style must provide `renderCanvas`. Phase 4 ships Canvas rendering and PNG export only. `clean-vector@1` additionally exports `renderSVG({ geometry, params, widthPx, heightPx })` with `capabilities.svg: true`; it produces true vector paths from normalized geometry. `exportSvg()` in `js/core/export-svg.js` returns `{ status: "ok", blob }` for that capability and `{ status: "unsupported", reason }` otherwise. The Phase 7 export panel enables SVG only for a capable active style and explains why `ink-tonal` cannot export it; its style picker lets the user select `clean-vector`. Do not represent raster pixels as SVG.
 
 ### Registration
 

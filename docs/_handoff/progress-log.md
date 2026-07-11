@@ -237,3 +237,10 @@
 - Verified: Browser suite 50 passed / 0 failed with a clean console. `clean-vector` exports a valid SVG document; `ink-tonal` returns `{ status: "unsupported", reason }` and no Blob.
 - Learned: A discriminated result preserves the style capability contract at the export boundary and gives the UI a direct explanation source.
 - Overwrote: `js/core/export-svg.js`, `test/export-svg.test.js`, `test/run-tests.js`, HANDOFF.md, implementation-plan.md, progress-log.md, `docs/extension-guide.md`.
+
+## 2026-07-11 - Session 6c: Slice 7.3 SVG capability UI
+
+- Happened: Added a registered-style picker and capability-aware export controls. `clean-vector` enables true SVG export; `ink-tonal` keeps the SVG button disabled with an inline explanation.
+- Verified: Browser suite 51 passed / 0 failed with a clean console. Chrome smoke confirmed style switching updates the renderer and SVG capability state without changing the flow-field system.
+- Learned: The export panel must obtain the current normalized render data at click time so viewport resizing does not make its SVG dimensions stale.
+- Overwrote: `js/main.js`, `js/ui/export-panel.js`, `test/export-panel.test.js`, `test/run-tests.js`, HANDOFF.md, implementation-plan.md, progress-log.md, `docs/extension-guide.md`.

@@ -4,6 +4,7 @@ import * as checkpointPanelTests from "./checkpoint-panel.test.js";
 import * as cleanVectorTests from "./clean-vector.test.js";
 import * as documentTests from "./document.test.js";
 import * as exportPngTests from "./export-png.test.js";
+import * as exportPanelTests from "./export-panel.test.js";
 import * as exportSvgTests from "./export-svg.test.js";
 import * as flowFieldTests from "./flow-field.test.js";
 import * as geometryTests from "./geometry.test.js";
@@ -33,6 +34,7 @@ const testModules = [
   cleanVectorTests,
   libraryPanelTests,
   exportPngTests,
+  exportPanelTests,
   exportSvgTests,
   schemaFormTests,
   presetWiringTests,

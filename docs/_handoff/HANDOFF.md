@@ -3,7 +3,7 @@
 **Goal:** Build a programmable generative art canvas for organic, recursive, style-rich abstract art — modernist/ink/Bauhaus-inspired, not cheesy fractal kitsch.
 
 **Current phase:** Phase 7 - Vector path
-**Next action:** Start Slice 7.3 (UI capability gating) from `docs/_handoff/implementation-plan.md`: update `js/ui/export-panel.js` to offer SVG only when the active style declares `capabilities.svg`, and show an inline explanation when it does not. Honor the hard Phase 7 UAT immediately after this slice.
+**Next action:** Run the Phase 7 hard UAT. Switch the flow-field system to `clean-vector`, export SVG, reopen the file directly in a browser, and confirm it matches the on-screen composition. Do not advance to Phase 8 until the user accepts.
 
 **Hard invariants:** Preserve exact checkpoint rendering across engine evolution. The shipped tool has no build step and supports both solo exploration and agent-guided extension.
 
@@ -27,4 +27,4 @@
 - docs/extension-guide.md - extension mechanics (carried in Required reading for this phase)
 
 **Open decisions:** None blocking. Chrome direction is approved and recorded in `lessons.md`. Phase 5 and Phase 6 hard UATs accepted 2026-07-11.
-**Last updated:** 2026-07-11 after Slice 7.2: `exportSvg()` returns a true SVG Blob or an explicit unsupported result; browser suite 50 passed / 0 failed. Next is Slice 7.3.
+**Last updated:** 2026-07-11 after Slice 7.3: the SVG control enables only for `clean-vector` and explains its unavailability for `ink-tonal`; browser suite 51 passed / 0 failed. Next is the hard Phase 7 UAT.
