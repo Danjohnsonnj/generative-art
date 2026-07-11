@@ -213,6 +213,18 @@ IDs are stable; versions are positive integers. Do not change the behavior of an
 
 If exact migration cannot be demonstrated, keep the old module implementation registered. Never silently coerce an old revision into a new appearance.
 
+### Phase 5 work sessions
+
+`js/core/work-session.js` owns one in-memory work. Create it with a draft, then
+use `checkpoint()` to create an immutable revision, `fork(revisionId)` to create
+a new work whose first revision cites the source, and
+`restoreRevision(revisionId)` to return the draft to a prior revision. Treat
+values returned by `getRevisions()` as immutable; edit only a draft supplied by
+`getDraft()` and pass it back through `setDraft(nextDraft)`.
+
+The work-session module is an application-state API, not a module-extension
+point. Later Phase 5 slices add portable bundle I/O, migrations, and UI wiring.
+
 ## 6. Exact extension steps
 
 1. Read `docs/_handoff/HANDOFF.md`, this guide, and the active phase plan before editing.

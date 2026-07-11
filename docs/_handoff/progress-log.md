@@ -153,3 +153,10 @@
 - Verified: Browser suite 28 passed / 0 failed; console clean.
 - Learned: `Date.parse` alone accepts loose date strings; require an ISO-8601 pattern before accepting timestamps.
 - Overwrote: `js/core/document.js`, `test/document.test.js`, `test/run-tests.js`, HANDOFF.md, `implementation-plan.md` status line, progress-log.md.
+
+## 2026-07-11 - Session 4c: Slice 5.2 work session
+
+- Happened: Added in-memory work sessions with immutable checkpoint revisions, fork lineage, and revision restoration. A fork immediately checkpoints its first revision against the source; drafts remain editable copies.
+- Verified: Browser suite 31 passed / 0 failed; console and IDE diagnostics clean. Tests prove immutable checkpoint history, fork source linkage, and restored geometry identity.
+- Learned: Session reads must return clones or frozen revisions so editing a current draft cannot rewrite checkpoint history.
+- Overwrote: `js/core/work-session.js`, `test/work-session.test.js`, `test/run-tests.js`, `docs/extension-guide.md`, HANDOFF.md, progress-log.md.
