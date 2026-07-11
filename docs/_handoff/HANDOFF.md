@@ -2,8 +2,8 @@
 
 **Goal:** Build a programmable generative art canvas for organic, recursive, style-rich abstract art — modernist/ink/Bauhaus-inspired, not cheesy fractal kitsch.
 
-**Current phase:** Phase 4 - First playable study (Slices 4.1–4.9 done)
-**Next action:** Start Slice 4.10 (Display PNG export) from `docs/_handoff/implementation-plan.md`. Add export logic and UI using the existing live canvas, then verify PNG signature and DPR-scaled dimensions before UAT.
+**Current phase:** Phase 4 - First playable study (Slices 4.1–4.10 done)
+**Next action:** Start Slice 4.11 (Extension guide) from `docs/_handoff/implementation-plan.md`. Document the locked module, registry, RNG, geometry, schema, migration, and verification contracts for future extension sessions.
 
 **Hard invariants:** Preserve exact checkpoint rendering across engine evolution. The shipped tool has no build step and supports both solo exploration and agent-guided extension.
 
@@ -25,4 +25,4 @@
 - lessons.md - curated, accreted toolkit (carried in Required reading)
 
 **Open decisions:** None blocking. Chrome direction is approved and recorded in `lessons.md`.
-**Last updated:** 2026-07-11 after Slice 4.9 UAT and accepted desktop sticky-stage correction
+**Last updated:** 2026-07-11 after Slice 4.10 PNG-export UAT passed

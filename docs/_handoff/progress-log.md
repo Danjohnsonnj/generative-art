@@ -125,3 +125,10 @@
 - Verified: Desktop stage stayed at `top: 64px` with `1136px` available height on a 1440×1200 viewport and remained centered after an 800px page scroll. Console and IDE diagnostics were clean. User accepted UAT.
 - Learned: A viewport-persistent canvas needs sticky positioning and a dynamically measured sibling offset; centering within a tall grid row alone is not sufficient.
 - Overwrote: `index.html`, `js/main.js`, `css/base.css`, HANDOFF.md, lessons.md, progress-log.md.
+
+## 2026-07-11 - Session 3f: Slice 4.10 display PNG export
+
+- Happened: Added PNG serialization for the existing live canvas and a compact export control with encoding, success-dimension, and error feedback. The download uses the displayed canvas directly, preserving its device-pixel-ratio-scaled dimensions without regenerating geometry.
+- Verified: 23 browser tests pass with zero console errors; the export test validates the PNG signature and IHDR pixel dimensions. Chrome smoke export completed at the live canvas dimensions, and the user confirmed UAT passed.
+- Learned: Display export should serialize the current raster surface rather than recreate it, so its visual result and device-pixel dimensions exactly match the live view.
+- Overwrote: `js/core/export-png.js`, `js/ui/export-panel.js`, `test/export-png.test.js`, `test/run-tests.js`, `js/main.js`, `index.html`, `css/base.css`, HANDOFF.md, progress-log.md.

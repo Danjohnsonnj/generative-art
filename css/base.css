@@ -164,7 +164,7 @@ dd {
 .control-rail {
   grid-area: controls;
   display: grid;
-  grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+  grid-template-rows: auto auto auto auto minmax(0, 1fr) auto;
   gap: 1.15rem;
   min-height: 0;
   padding: 0.75rem 0.75rem 0.85rem;
@@ -263,6 +263,58 @@ h1 {
   display: grid;
   grid-template-columns: 1fr 1fr auto;
   gap: 0.35rem;
+}
+
+.export-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+}
+
+.export-panel__title,
+.export-panel__status {
+  margin: 0;
+  font: 500 0.58rem/1 var(--font-readout);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.export-panel__title {
+  color: var(--text-muted);
+}
+
+.export-panel button {
+  grid-row: span 2;
+  min-height: 2.75rem;
+  padding: 0 0.6rem;
+  border: 1px solid var(--edge-strong);
+  border-radius: var(--radius);
+  color: var(--text);
+  background: var(--panel-raised);
+  font: 600 0.58rem/1 var(--font-ui);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.export-panel button:hover {
+  border-color: var(--text-muted);
+}
+
+.export-panel button:focus-visible {
+  outline: 2px solid var(--readout);
+  outline-offset: 2px;
+}
+
+.export-panel button:disabled {
+  cursor: progress;
+  opacity: 0.65;
+}
+
+.export-panel__status {
+  color: var(--readout);
 }
 
 .control-scroll {

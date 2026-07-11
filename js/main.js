@@ -2,6 +2,7 @@ import { resolvePreset } from "./core/bootstrap.js";
 import { createRng } from "./core/rng.js";
 import flowInkWash from "./presets/flow-ink-wash.js";
 import { createCanvasView } from "./ui/canvas-view.js";
+import { createExportPanel } from "./ui/export-panel.js";
 import { createSchemaForm } from "./ui/schema-form.js";
 
 const root = document.documentElement;
@@ -11,6 +12,7 @@ const elements = {
   controlContent: document.querySelector("#control-content"),
   dimensionReadout: document.querySelector("#dimension-readout"),
   dockToggle: document.querySelector("#dock-toggle"),
+  exportContent: document.querySelector("#export-content"),
   header: document.querySelector("#app-header"),
   newSeed: document.querySelector("#new-seed"),
   peek: document.querySelector("#rail-peek"),
@@ -55,6 +57,10 @@ const canvasView = createCanvasView({
     elements.dimensionReadout.textContent = `${widthPx} × ${heightPx} px`;
   },
 });
+
+elements.exportContent.append(
+  createExportPanel({ canvas: elements.canvas }),
+);
 
 function renderArtwork() {
   const geometry = modules.system.generate({
