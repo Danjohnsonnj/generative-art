@@ -59,3 +59,9 @@
 - Context: Solo daily use and agent-guided growth.
 - Lesson: Optimize UX for explore/checkpoint/fork/export. Keep systems/styles as schema-registered modules the agent adds; do not ship a user code editor. Everyday play must never require an agent.
 - Evidence: User 2026-07-10 — guided agent-assisted extension vs explore existing combos without agent.
+
+## A plan's self-check is not a substitute for independent review
+
+- Context: `implementation-plan.md` shipped with its own "Plan-reference check" section asserting full `phases.md` coverage.
+- Lesson: An author-written self-check tends to confirm what the author already believes is covered. Run an independent standalone review (fresh read against the source-of-truth bullets) before trusting a plan's own closing claim — it caught two real contract gaps (schema-value validation, migration fixtures) the self-check had missed.
+- Evidence: `/review-plan` standalone pass on 2026-07-10 found the coverage gaps; a Reliability finding recommended (not yet built) a script diffing `phases.md` bullets against plan slices to catch this automatically on future edits.

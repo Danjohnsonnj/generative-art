@@ -69,3 +69,24 @@
 - Verified: All internal file links resolve; no stale planning-state or optional-`file://` claims remain; required reading matches the next phase; every delivery phase has automated and observable verification; IDE diagnostics report no errors.
 - Learned: The reviewed briefs are now sufficient input for a separate implementation plan without depending on this chat.
 - Overwrote: HANDOFF.md (planning-ready next action), product-brief.md (readiness complete), phases.md (Phase 2 complete), tech-brief.md and lessons.md (final consistency corrections).
+
+## 2026-07-10 - Session 2: Implementation plan drafted
+
+- Happened: Drafted `docs/_handoff/implementation-plan.md` covering Phases 4-10: locked one concrete PRNG (`mulberry32` seeded via FNV-1a), coordinate space (`normalized-v1` rectangle sized to `aspectRatio`), geometry IR shape (`{ irVersion, strokes: [{ points, closed, fill, tags, styleHints }] }`), module contract (static-import registry, no dynamic discovery), and a no-framework browser test harness convention (`test/index.html` + `test/*.test.js` + `window.__TEST_RESULTS__`). Broke each phase into exact-file slices with an automated verify and, where applicable, a manual/UAT step.
+- Verified: Every `phases.md` automated-verify and UAT line for Phases 4-10 is covered by at least one slice; every contract referenced traces to a named `tech-brief.md` section; phase numbering matches `phases.md` exactly (plan-reference check in the new doc's closing section).
+- Learned: none new (execution of already-locked contracts, not a requirements change).
+- Overwrote: HANDOFF.md (phase → plan drafted/awaiting approval; required reading/index updated), phases.md (link to implementation-plan.md; Phase 3 marked drafted-awaiting-approval). Added docs/_handoff/implementation-plan.md.
+
+## 2026-07-10 - Session 2b: Standalone plan review findings applied
+
+- Happened: Ran a standalone quality-gate review (Accuracy/Completeness/Concision/Precision/Clarity + Resumability/Reliability lenses) against `implementation-plan.md`. Found and fixed real coverage gaps the plan's own closing self-check had missed: no slice validated `paramsSchema` values before acceptance (added to Slice 4.5/4.8), no slice tested a migration path despite `tech-brief.md` requiring one (added Slice 5.4, plus an optional `migrate(oldParams, fromVersion)` module export), and Phase 8 never checked `ink-growth`'s IR against both styles' declared capabilities. Also named previously-unnamed test files (Slices 4.9, 5.1-5.3, 6.1-6.2), fixed a file/verify mismatch (`png-dpi.test.js` moved from 9.2 to 9.1), named an isolated test-only IndexedDB (`generative-art-canvas-v1-test`), and converted load-bearing `phases.md`/`HANDOFF.md` mentions to markdown links.
+- Verified: `check-refs.py` reports all links resolve (4/4 after the link-form fix); corrected the plan's closing self-check claim to no longer overstate coverage.
+- Learned: A plan's own "plan-reference check" self-certification is not a substitute for an independent review pass — it missed the two contract gaps (schema validation, migration) that an external gate check caught. Logged as a Reliability recommendation (not yet built): a script diffing `phases.md` bullets against `implementation-plan.md` slices would catch this drift automatically on future edits.
+- Overwrote: docs/_handoff/implementation-plan.md (all fixes above); no other handoff file changed.
+
+## 2026-07-10 - Session 2c: Implementation plan approved; handoff to Phase 4
+
+- Happened: User approved `implementation-plan.md` as-reviewed. Phase 4 (first application code) will start in a new session.
+- Verified: N/A (approval is a decision, not a check).
+- Learned: none new.
+- Overwrote: phases.md (Phase 3 marked done/approved), HANDOFF.md (phase → Phase 4 not yet started; next action → Slice 4.1; required reading narrowed to what Phase 4 slices actually need — implementation-plan.md + tech-brief.md + process.md + lessons.md, dropping phases.md now that its per-phase summary is superseded by the plan for execution purposes).

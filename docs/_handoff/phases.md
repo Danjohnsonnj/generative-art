@@ -1,5 +1,7 @@
 # Phases
 
+See [implementation-plan.md](implementation-plan.md) for the exact files, slice sequencing, and per-slice verification behind Phases 4-10 below.
+
 ## Phase 1 - Discovery
 
 - Lock product requirements: user workflow, delivery, export, persistence, render, system×style path, v1 scope, dual solo/agent workflow, non-goals.
@@ -13,7 +15,7 @@
 ## Phase 3 - Implementation planning
 
 - Create a separate cold-start executable plan that names exact files, one implementation path, prerequisites, out-of-scope work, and deterministic verification for every increment below.
-- Verify: plan-reference check passes; each increment leaves a runnable tool; user approves the plan before application code.
+- Verify: plan-reference check passes; each increment leaves a runnable tool; user approves the plan before application code. **Done 2026-07-10: plan drafted, reviewed, and approved (implementation-plan.md).**
 
 ## Phase 4 - First playable study
 
