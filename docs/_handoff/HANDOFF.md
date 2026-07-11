@@ -3,7 +3,7 @@
 **Goal:** Build a programmable generative art canvas for organic, recursive, style-rich abstract art — modernist/ink/Bauhaus-inspired, not cheesy fractal kitsch.
 
 **Current phase:** Phase 7 - Vector path
-**Next action:** Start Slice 7.1 (`clean-vector` style) from `docs/_handoff/implementation-plan.md`: add `js/styles/clean-vector.js` and `test/clean-vector.test.js` with Canvas + SVG render paths and a deterministic SVG fixture. Honor the hard Phase 7 UAT after Slice 7.3.
+**Next action:** Start Slice 7.2 (SVG export) from `docs/_handoff/implementation-plan.md`: add `js/core/export-svg.js` and `test/export-svg.test.js`. Export true SVG only for a style with `capabilities.svg`; return a named unsupported result for raster-only styles. Honor the hard Phase 7 UAT after Slice 7.3.
 
 **Hard invariants:** Preserve exact checkpoint rendering across engine evolution. The shipped tool has no build step and supports both solo exploration and agent-guided extension.
 
@@ -27,4 +27,4 @@
 - docs/extension-guide.md - extension mechanics (carried in Required reading for this phase)
 
 **Open decisions:** None blocking. Chrome direction is approved and recorded in `lessons.md`. Phase 5 and Phase 6 hard UATs accepted 2026-07-11.
-**Last updated:** 2026-07-11 after Phase 6 complete (Slices 6.1–6.3 + hard UAT accepted); next is Slice 7.1.
+**Last updated:** 2026-07-11 after Slice 7.1: `clean-vector@1` is registered with deterministic Canvas/SVG rendering; browser suite 48 passed / 0 failed. Next is Slice 7.2.

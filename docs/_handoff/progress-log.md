@@ -223,3 +223,10 @@
 - Verified: User acceptance of the Phase 6 exit criteria; Slices 6.1–6.3 already committed; browser suite last green at 46 passed / 0 failed. Malformed import surfaced: `Could not import JSON: ArtworkBundle JSON is invalid: Expected property name or '}' in JSON at position 1 (line 1 column 2)`.
 - Learned: Prefixing the parser/validation message with `Could not import JSON:` keeps the failure actionable without inventing a separate error taxonomy.
 - Overwrote: HANDOFF.md, phases.md, implementation-plan.md, progress-log.md, lessons.md, `docs/extension-guide.md`.
+
+## 2026-07-11 - Session 6a: Slice 7.1 clean-vector style
+
+- Happened: Added and registered `clean-vector@1`, a crisp vector-capable style with Canvas and SVG render paths for weighted paths and translucent closed fills.
+- Verified: Browser suite 48 passed / 0 failed with a clean console. The SVG fixture is byte-stable after whitespace normalization, parses without XML errors, and contains path elements; Canvas rendering returns the requested 600 × 400 surface.
+- Learned: Keeping Canvas and SVG on the same normalized-coordinate conversion gives the export path the same composition without re-running generation.
+- Overwrote: `js/styles/clean-vector.js`, `js/core/bootstrap.js`, `test/clean-vector.test.js`, `test/run-tests.js`, HANDOFF.md, implementation-plan.md, progress-log.md, `docs/extension-guide.md`.

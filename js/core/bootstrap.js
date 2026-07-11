@@ -10,9 +10,11 @@ import {
   validateParams,
 } from "./registry.js";
 import * as flowField from "../systems/flow-field.js";
+import * as cleanVector from "../styles/clean-vector.js";
 import * as inkTonal from "../styles/ink-tonal.js";
 
 registerSystem(flowField);
+registerStyle(cleanVector);
 registerStyle(inkTonal);
 
 export function resolvePreset(preset) {
