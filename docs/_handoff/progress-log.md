@@ -167,3 +167,10 @@
 - Verified: Browser suite 36 passed / 0 failed; console and IDE diagnostics clean. Fixtures cover structural round-trip, unknown optional fields, unsupported module/schema versions, and collision choices without mutating existing IDs.
 - Learned: Keep bundle parsing and collision detection pure so invalid imports cannot partially mutate in-memory or future persistent state.
 - Overwrote: `js/core/bundle-io.js`, `js/core/bootstrap.js`, `test/bundle-io.test.js`, `test/run-tests.js`, `docs/extension-guide.md`, HANDOFF.md, progress-log.md.
+
+## 2026-07-11 - Session 4e: Slice 5.4 migration fixture
+
+- Happened: Added synthetic `flow-field` v0→v1 migration from `lineAmount` to `lineCount`. Revision resolution now upgrades only explicitly supported old module versions and returns the validated current revision; unsupported versions fail visibly.
+- Verified: Browser suite 38 passed / 0 failed; console and IDE diagnostics clean. The migration fixture produces the same geometry hash as the equivalent v1 revision.
+- Learned: Historical document references may need a legacy version value that is not a registered module version; isolate that exception to the migration resolver and fixture.
+- Overwrote: `js/core/document.js`, `js/core/bootstrap.js`, `js/systems/flow-field.js`, `test/migration.test.js`, `test/run-tests.js`, `docs/extension-guide.md`, HANDOFF.md, progress-log.md.

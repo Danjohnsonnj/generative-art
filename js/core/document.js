@@ -42,6 +42,12 @@ function requirePositiveInteger(value, path) {
   }
 }
 
+function requireNonNegativeInteger(value, path) {
+  if (!Number.isInteger(value) || value < 0) {
+    reject(`${path} must be a non-negative integer`);
+  }
+}
+
 function requirePositiveNumber(value, path) {
   if (!Number.isFinite(value) || value <= 0) {
     reject(`${path} must be a positive finite number`);
@@ -70,7 +76,7 @@ function validateNullableRevisionId(value, path) {
 function validateModuleReference(moduleReference, path) {
   requireRecord(moduleReference, path);
   requireNonEmptyString(moduleReference.id, `${path}.id`);
-  requirePositiveInteger(moduleReference.version, `${path}.version`);
+  requireNonNegativeInteger(moduleReference.version, `${path}.version`);
   requireRecord(moduleReference.params, `${path}.params`);
 }
 

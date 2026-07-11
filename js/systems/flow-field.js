@@ -130,6 +130,17 @@ const meta = Object.freeze({
 
 export default meta;
 
+export function migrate(oldParams, fromVersion) {
+  if (fromVersion !== 0) {
+    throw new RangeError(`flow-field cannot migrate from version ${fromVersion}`);
+  }
+
+  const { lineAmount, ...sharedParams } = oldParams;
+  const params = { ...sharedParams, lineCount: lineAmount };
+  validateParams(meta.paramsSchema, params);
+  return params;
+}
+
 function shortestAngle(from, to) {
   return Math.atan2(Math.sin(to - from), Math.cos(to - from));
 }

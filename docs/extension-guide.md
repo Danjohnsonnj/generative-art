@@ -213,6 +213,11 @@ IDs are stable; versions are positive integers. Do not change the behavior of an
 
 If exact migration cannot be demonstrated, keep the old module implementation registered. Never silently coerce an old revision into a new appearance.
 
+Phase 5 includes a synthetic legacy `flow-field` v0 fixture that renames
+`lineAmount` to v1's `lineCount`. Version 0 is only a stored historical fixture;
+registered module versions remain positive integers. The migration must validate
+the resulting v1 params and preserve the recorded geometry hash.
+
 ### Phase 5 work sessions
 
 `js/core/work-session.js` owns one in-memory work. Create it with a draft, then
