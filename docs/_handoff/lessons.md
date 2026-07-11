@@ -88,4 +88,10 @@
 
 - Context: Phases 5–10 already had phase-end UAT; Phase 4 also used mid-slice visual gates.
 - Lesson: Keep phase-end UAT hard for Phases 5–9 and the Phase 10 release gate. Add only targeted mid-gates where UI would otherwise sit on an unproven contract (Phase 5: after bundle I/O before checkpoint UI). After checkpoint UI (5.5) and library UI (6.3), the agent runs the phase UAT script once in Chrome before asking the user to accept. Do not add a UAT after every validation-only slice.
-- Evidence: User decision 2026-07-11.
+- Evidence: User decision 2026-07-11; Phase 5 hard UAT accepted 2026-07-11.
+
+## One-work Phase 5 UAT needs an exported source copy
+
+- Context: Phase 5 keeps exactly one work in memory; IndexedDB arrives in Phase 6.
+- Lesson: To prove the source revision is unchanged after forking/changing/exporting, export the source JSON before importing the changed fork, then re-import the source. Do not expect simultaneous open works until Phase 6.
+- Evidence: Phase 5 hard UAT, 2026-07-11.

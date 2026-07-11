@@ -188,3 +188,10 @@
 - Verified: Browser component suite reaches 40 passed / 0 failed. Chrome app smoke confirmed the panel loads cleanly, a checkpoint appears in history, and Fork creates a new work with its own first revision.
 - Learned: The UI can preserve the small Phase 5 scope by treating a draft as a projection of the existing schema controls and synchronizing it only at a persistence boundary.
 - Overwrote: `index.html`, `css/base.css`, `js/main.js`, `js/ui/checkpoint-panel.js`, `test/checkpoint-panel.test.js`, `test/run-tests.js`, `docs/extension-guide.md`, HANDOFF.md, progress-log.md.
+
+## 2026-07-11 - Session 4h: Phase 5 hard UAT accepted
+
+- Happened: User accepted the Phase 5 hard UAT (checkpoint → fork → change fork → export JSON → re-import as new work → return to unchanged source). Advanced handoff to Phase 6.
+- Verified: User acceptance of the Phase 5 exit criteria; Slices 5.1–5.5 already committed; browser suite last green at 40 passed / 0 failed.
+- Learned: With one in-memory work at a time, proving source immutability during UAT requires exporting the source JSON before importing the changed fork, then re-importing the source.
+- Overwrote: HANDOFF.md, phases.md, implementation-plan.md, progress-log.md, lessons.md, `docs/extension-guide.md`.

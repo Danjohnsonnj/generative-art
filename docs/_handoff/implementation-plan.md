@@ -2,7 +2,7 @@
 
 Cold-start executable plan for [phases.md](phases.md) Phases 4-10. Names exact files, one implementation path, prerequisites, out-of-scope work, and deterministic verification per increment. This document does not restate product/technical rationale — see [product-brief.md](product-brief.md) and [tech-brief.md](tech-brief.md) for that.
 
-**Status:** Approved and in execution. Phase 4 complete; Phase 5 in progress (Slice 5.1 done). See [HANDOFF.md](HANDOFF.md) for the current next action.
+**Status:** Approved and in execution. Phases 4–5 complete; Phase 6 next. See [HANDOFF.md](HANDOFF.md) for the current next action.
 
 ## Global prerequisites (one-time, before Slice 4.1)
 
@@ -108,7 +108,7 @@ docs/
 
 **Pre-UI contract gate (after 5.3, before 5.5):** Do not start the checkpoint panel until Slice 5.3 automated verify is green. Run a short API-level smoke in the browser test page or console: export→import round-trip structurally equal; unknown optional field preserved; collision surfaces new-work vs replace (no silent overwrite). Slice 5.4 may run after 5.3 and before this gate clears for 5.5.
 
-**Hard phase UAT (after 5.5):** checkpoint the preset, fork it, change the fork, export JSON, re-import as a new work, and return to the unchanged source revision — matching [phases.md](phases.md) Phase 5 exactly. Agent runs this UAT script once in Chrome and records the result before marking Phase 5 done; do not start Phase 6 until the user accepts.
+**Hard phase UAT (after 5.5):** checkpoint the preset, fork it, change the fork, export JSON, re-import as a new work, and return to the unchanged source revision — matching [phases.md](phases.md) Phase 5 exactly. Agent runs this UAT script once in Chrome and records the result before marking Phase 5 done; do not start Phase 6 until the user accepts. **Accepted 2026-07-11.**
 
 ---
 

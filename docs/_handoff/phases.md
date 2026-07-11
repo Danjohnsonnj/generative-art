@@ -28,7 +28,7 @@ See [implementation-plan.md](implementation-plan.md) for the exact files, slice 
 - Add work/draft/immutable-revision semantics, exact version resolution, fork lineage, JSON import/export, collision handling, and the corresponding extension-guide updates.
 - Automated verify: checkpoint immutability, exact reload, fork lineage, migration fixtures, and JSON round-trip pass.
 - Pre-UI gate: after bundle I/O (Slice 5.3) automated verify, smoke export→import/collision before building the checkpoint panel (Slice 5.5).
-- Hard UAT (after checkpoint UI): checkpoint the preset, fork it, change the fork, export JSON, re-import as a new work, and return to the unchanged source. Agent runs once in Chrome; user must accept before Phase 6.
+- Hard UAT (after checkpoint UI): checkpoint the preset, fork it, change the fork, export JSON, re-import as a new work, and return to the unchanged source. Agent runs once in Chrome; user must accept before Phase 6. **Done 2026-07-11: Slices 5.1–5.5 committed; hard UAT accepted.**
 
 ## Phase 6 - Browser library
 

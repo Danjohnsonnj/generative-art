@@ -209,7 +209,7 @@ IDs are stable; versions are positive integers. Do not change the behavior of an
 - Change implementation behavior or parameter meaning: introduce a new module version.
 - Add a backwards-compatible optional field: preserve it through document/bundle round trips when the persistence phase is present.
 - Change the IR: introduce a new `irVersion` and retain compatible renderers/modules or reject the combination visibly.
-- Change a parameter schema for an existing module lineage: provide a named `migrate(oldParams, fromVersion)` only when it returns valid current params and automated fixtures prove identical historical output. **Phase 4 has no migration loader.** Migration resolution is introduced in Phase 5; do not rely on it before that phase is complete.
+- Change a parameter schema for an existing module lineage: provide a named `migrate(oldParams, fromVersion)` only when it returns valid current params and automated fixtures prove identical historical output. Migration resolution is live as of Phase 5 via `resolveArtworkRevision` in `js/core/bootstrap.js`.
 
 If exact migration cannot be demonstrated, keep the old module implementation registered. Never silently coerce an old revision into a new appearance.
 
@@ -279,9 +279,9 @@ Serve the root with `python3 -m http.server 8000`, then open `http://127.0.0.1:8
 
 ### Future phases (apply only when the stated phase is complete)
 
-- **Phase 5 — checkpoint/fork lineage:** after checkpointing, forking, and restoring a revision, confirm the same seed+params yields an identical geometry hash as when the revision was saved.
-- **Phase 5 — bundle import/collision:** export a bundle, re-import it, and confirm the round-trip is structurally identical. Import a second bundle with the same `workId` and confirm a collision decision is prompted rather than silently overwriting.
-- **Phase 5 — migration fixture:** for any `migrate(oldParams, fromVersion)` export, confirm the migrated params produce an identical geometry hash to an equivalent hand-written current-version revision.
+- **Phase 5 — checkpoint/fork lineage:** after checkpointing, forking, and restoring a revision, confirm the same seed+params yields an identical geometry hash as when the revision was saved. **Live as of Phase 5 close (2026-07-11).**
+- **Phase 5 — bundle import/collision:** export a bundle, re-import it, and confirm the round-trip is structurally identical. Import a second bundle with the same `workId` and confirm a collision decision is prompted rather than silently overwriting. **Live as of Phase 5 close (2026-07-11).**
+- **Phase 5 — migration fixture:** for any `migrate(oldParams, fromVersion)` export, confirm the migrated params produce an identical geometry hash to an equivalent hand-written current-version revision. **Live as of Phase 5 close (2026-07-11).**
+- **Phase 6 — IndexedDB:** after a page reload, confirm persisted works reopen without JSON import; confirm deleting one work leaves others intact. **Not live yet.**
 - **Phase 7 — SVG serialization:** for a `capabilities.svg: true` style, confirm `renderSVG` produces a valid, non-empty SVG string with no `DOMParser` errors; reopen the exported SVG file in a browser and compare its composition to the screen. Confirm SVG export is disabled with an explanation for `canvas`-only styles.
 - **Phase 9 — PNG `pHYs` metadata:** confirm a 12 × 18 in @ 300 DPI print export produces exactly 3600 × 5400 px and the `pHYs` chunk reports 300 DPI.
-- **Phase 6 — IndexedDB:** after a page reload, confirm persisted works reopen without JSON import; confirm deleting one work leaves others intact.
