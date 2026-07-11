@@ -95,3 +95,9 @@
 - Context: Phase 5 keeps exactly one work in memory; IndexedDB arrives in Phase 6.
 - Lesson: To prove the source revision is unchanged after forking/changing/exporting, export the source JSON before importing the changed fork, then re-import the source. Do not expect simultaneous open works until Phase 6.
 - Evidence: Phase 5 hard UAT, 2026-07-11.
+
+## Test-only IndexedDB must never touch the library
+
+- Context: Browser persistence tests need destructive setup and teardown.
+- Lesson: Keep the production and test databases separately named. Delete only `generative-art-canvas-v1-test` before and after tests; production uses `generative-art-canvas-v1`. Validate a complete snapshot before its write transaction, so a malformed import cannot partially alter persisted data.
+- Evidence: Phase 6 Slice 6.1, 2026-07-11.

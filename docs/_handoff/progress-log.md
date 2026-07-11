@@ -195,3 +195,10 @@
 - Verified: User acceptance of the Phase 5 exit criteria; Slices 5.1–5.5 already committed; browser suite last green at 40 passed / 0 failed.
 - Learned: With one in-memory work at a time, proving source immutability during UAT requires exporting the source JSON before importing the changed fork, then re-importing the source.
 - Overwrote: HANDOFF.md, phases.md, implementation-plan.md, progress-log.md, lessons.md, `docs/extension-guide.md`.
+
+## 2026-07-11 - Session 5a: Slice 6.1 IndexedDB store
+
+- Happened: Added IndexedDB persistence with separate production (`generative-art-canvas-v1`) and destructive-test (`generative-art-canvas-v1-test`) databases. The core store atomically creates, lists, loads, updates, and deletes work metadata, drafts, and immutable revisions; revision history order is retained with each work.
+- Verified: Browser suite 43 passed / 0 failed; console and IDE diagnostics clean. Tests cover create/list/load/update/delete, preserving a second work while deleting the first, and malformed snapshot rejection with byte-for-byte unchanged existing data.
+- Learned: Validating the full storage snapshot before opening its write transaction prevents malformed imports from partially persisting.
+- Overwrote: `js/core/store-indexeddb.js`, `test/store-indexeddb.test.js`, `test/run-tests.js`, HANDOFF.md, implementation-plan.md, lessons.md, `docs/extension-guide.md`, progress-log.md.
